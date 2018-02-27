@@ -41,8 +41,8 @@ import hyper from 'hyperhtml/esm'
 define([
   Component('fn'),
   Attribute('name', String),
-  Template(html => {
-    html `<h1>Hello ${name}</h1>`
+  Template(function(html) {
+    html `<h1>Hello ${this.name}</h1>`
   }),
   class Greeter extends HTMLElement {
 
