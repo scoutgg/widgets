@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "budo": "^11.1.7",
-    "fn-pug": "fireneslo/fn-pug",
+    "fn-pug": "github:fireneslo/fn-pug",
     "hyperhtml": "^2.5.13",
     "projectz": "^1.4.0",
     "rollup": "^0.56.3",
@@ -40,5 +40,13 @@
     "virtual-dom": "^2.1.1"
   },
   "maintainers": [],
-  "contributors": []
+  "contributors": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scoutgg/widgets.git"
+  },
+  "bugs": {
+    "url": "https://github.com/scoutgg/widgets/issues"
+  },
+  "homepage": "https://github.com/scoutgg/widgets#readme"
 }

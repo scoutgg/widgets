@@ -1,6 +1,6 @@
 <!-- TITLE/ -->
 
-<h1>widgets</h1>
+<h1>@scoutgg/widgets</h1>
 
 <!-- /TITLE -->
 
@@ -24,8 +24,8 @@ Small webcomponent library for simple apps
 <h2>Install</h2>
 
 <a href="https://npmjs.com" title="npm is a package manager for javascript"><h3>NPM</h3></a><ul>
-<li>Install: <code>npm install --save widgets</code></li>
-<li>Module: <code>require('widgets')</code></li></ul>
+<li>Install: <code>npm install --save @scoutgg/widgets</code></li>
+<li>Module: <code>require('@scoutgg/widgets')</code></li></ul>
 
 <!-- /INSTALL -->
 

@@ -1164,7 +1164,7 @@ flat@^2.0.1:
   dependencies:
     is-buffer "~1.1.2"
 
-fn-pug@fireneslo/fn-pug:
+"fn-pug@github:fireneslo/fn-pug":
   version "1.0.0"
   resolved "https://codeload.github.com/fireneslo/fn-pug/tar.gz/1cef94db5128fc50822f1de3ec605b596d50f7b7"
   dependencies:
