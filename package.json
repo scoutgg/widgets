@@ -1,5 +1,5 @@
 {
-  "name": "widgets",
+  "name": "@scoutgg/widgets",
   "version": "1.0.0",
   "description": "Small webcomponent library for simple apps",
   "main": "widgets",
