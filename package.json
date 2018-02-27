@@ -1,0 +1,44 @@
+{
+  "name": "widgets",
+  "version": "1.0.0",
+  "description": "Small webcomponent library for simple apps",
+  "main": "widgets",
+  "scripts": {
+    "start": "budo demo --open --live",
+    "readme": "projectz compile",
+    "widgets": "npm run umd | npm run mjs",
+    "build": "npm run widgets | npm run readme",
+    "umd": "rollup -i ./source/index.js -n fnWidgets -f umd -o widgets.js",
+    "mjs": "rollup -i ./source/index.js -f es -o widgets.mjs"
+  },
+  "keywords": [],
+  "author": "Øystein Østebø Olsen <fireneslo@gmail.com>",
+  "license": "ISC",
+  "browserify": {
+    "transform": [
+      "fn-pug/lib/transform/browserify",
+      [
+        "rollupify",
+        {
+          "config": {
+            "external": [
+              "hyperhtml/umd",
+              "virtual-dom"
+            ]
+          }
+        }
+      ]
+    ]
+  },
+  "devDependencies": {
+    "budo": "^11.1.7",
+    "fn-pug": "fireneslo/fn-pug",
+    "hyperhtml": "^2.5.13",
+    "projectz": "^1.4.0",
+    "rollup": "^0.56.3",
+    "rollupify": "^0.4.0",
+    "virtual-dom": "^2.1.1"
+  },
+  "maintainers": [],
+  "contributors": []
+}
