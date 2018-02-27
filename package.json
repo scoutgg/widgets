@@ -8,7 +8,7 @@
     "readme": "projectz compile",
     "widgets": "npm run umd | npm run mjs",
     "build": "npm run widgets | npm run readme",
-    "umd": "rollup -i ./source/index.js -n fnWidgets -f umd -o widgets.js",
+    "umd": "rollup -i ./source/index.js -n sggWidgets -f umd -o widgets.js",
     "mjs": "rollup -i ./source/index.js -f es -o widgets.mjs"
   },
   "keywords": [],
