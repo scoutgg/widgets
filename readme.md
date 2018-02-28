@@ -73,7 +73,7 @@ document.body.appendChild(greeter)
 
 Unless stated otherwise all works are:
 
-<ul><li>Copyright &copy; Øystein Østebø Olsen</li></ul>
+<ul><li>Copyright &copy; Scout Gaming Group</li></ul>
 
 and licensed under:
 

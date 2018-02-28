@@ -12,7 +12,7 @@
     "mjs": "rollup -i ./source/index.js -f es -o widgets.mjs"
   },
   "keywords": [],
-  "author": "Øystein Østebø Olsen <fireneslo@gmail.com>",
+  "author": "Scout Gaming Group <oystein.olsen@scoutgaminggroup.com>",
   "license": "ISC",
   "browserify": {
     "transform": [
