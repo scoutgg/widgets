@@ -33,7 +33,7 @@ export function middleware(done) {
       if(method) {
         return method.call(context.self, args, next)
       } else if(done) {
-        return done(...args)
+        return done.apply(context.self, args)
       }
     }
 

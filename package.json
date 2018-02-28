@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "description": "Small webcomponent library for simple apps",
   "main": "widgets",
+  "browser": "source/index.js",
   "scripts": {
     "start": "budo demo --open --live",
     "readme": "projectz compile",
-    "widgets": "npm run umd | npm run mjs",
+    "widgets": "npm run pug-bundle && npm run hyper-bundle",
     "build": "npm run widgets | npm run readme",
-    "umd": "rollup -i ./source/index.js -n sggWidgets -f umd -o widgets.js",
-    "mjs": "rollup -i ./source/index.js -f es -o widgets.mjs"
+    "pug-bundle": "browserify bundles/pug --standalone sggWidgets > widgets.vdom-pug.bundle.js",
+    "hyper-bundle": "browserify bundles/hyper --standalone sggWidgets > widgets.hyper.bundle.js"
   },
   "keywords": [],
   "author": "Scout Gaming Group <oystein.olsen@scoutgaminggroup.com>",
@@ -22,6 +23,8 @@
         {
           "config": {
             "external": [
+              "fn-pug/lib",
+              "fn-pug/lib/runtime/vdom",
               "hyperhtml/umd",
               "virtual-dom"
             ]
@@ -31,6 +34,7 @@
     ]
   },
   "devDependencies": {
+    "browserify": "^16.1.0",
     "budo": "^11.1.7",
     "fn-pug": "github:fireneslo/fn-pug",
     "hyperhtml": "^2.5.13",
@@ -40,7 +44,9 @@
     "virtual-dom": "^2.1.1"
   },
   "maintainers": [],
-  "contributors": [],
+  "contributors": [
+    "Øystein Ø. Olsen (https://github.com/FireNeslo)"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/scoutgg/widgets.git"
