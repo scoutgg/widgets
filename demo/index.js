@@ -1,6 +1,6 @@
 import * as vdom from 'virtual-dom'
 
-import { Component, Template, Attribute, bootstrap  } from '../source/index'
+import { Component, Template, Attribute, bootstrap } from '../source/index'
 import { define } from '../source/utils'
 
 import { vdom as renderer } from '../source/renderers/vdom'
@@ -14,11 +14,13 @@ export default define([
   }
 ])
 
-const result = bootstrap([ renderer(vdom) ])
+bootstrap([
+  renderer(vdom)
+])
 
 const demo = document.createElement('fn-demo')
 
 
-document.body.appendChild(demo)
+demo.setAttribute('is-awesome', '')
 
-console.log(result)
+document.body.appendChild(demo)
