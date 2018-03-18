@@ -1,9 +1,9 @@
 import * as vdom from 'virtual-dom'
 
-import { Component, Template, Attribute, bootstrap } from '../source/index'
-import { define } from '../source/utils'
+import { Component, Template, Attribute, bootstrap } from '../source/index.js'
+import { define } from '../source/utils.js'
 
-import { vdom as renderer } from '../source/renderers/vdom'
+import { vdom as renderer } from '../source/renderers/vdom.js'
 
 export default define([
   Component('fn'),

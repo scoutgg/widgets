@@ -1,4 +1,4 @@
-import { plugin } from '../utils'
+import { plugin } from '../utils.js'
 
 export const elements = new Set()
 

@@ -1,4 +1,4 @@
-import { define, kebabCase, transfer } from '../utils'
+import { define, kebabCase, transfer } from '../utils.js'
 
 const COMPONENTS = [ ]
 const sggWidgets = Symbol.for('sggWidgets')

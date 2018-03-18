@@ -1,5 +1,5 @@
-export { Component, bootstrap } from './decorators/component'
-export { Template } from './decorators/template'
-export { Attribute } from './decorators/attribute'
+export { Component, bootstrap } from './decorators/component.js'
+export { Template } from './decorators/template.js'
+export { Attribute } from './decorators/attribute.js'
 
-export * from './utils'
+export * from './utils.js'

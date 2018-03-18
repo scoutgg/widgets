@@ -1,4 +1,4 @@
-import { plugin } from '../utils'
+import { plugin } from '../utils.js'
 
 export function queue(render) {
   const queue = new Set()

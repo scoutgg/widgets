@@ -1,5 +1,5 @@
-import { plugin } from '../utils'
-import { queue } from './queue'
+import { plugin } from '../utils.js'
+import { queue } from './queue.js'
 
 export function hyper({ bind }) {
   const shedule = queue(function render(node) {

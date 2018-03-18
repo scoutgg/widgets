@@ -1,4 +1,4 @@
-import { camelCase, kebabCase } from '../utils'
+import { camelCase, kebabCase } from '../utils.js'
 
 export function Attribute(name, type) {
   const property = camelCase(name)
