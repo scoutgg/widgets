@@ -9,7 +9,7 @@ export function camelCase(string) {
 }
 
 export function define(decorators=[], target = decorators.pop()) {
-  for(const transform of decorators) {
+  for(const transform of decorators.reverse()) {
     target = transform(target) || target
   }
   return target
@@ -43,7 +43,7 @@ export function middleware(done) {
   return pipeline
 }
 
-export function mixin(target, ...sources) {
+export function plugin(target, ...sources) {
   for(const source of sources) {
     for(const [ property, method ] of Object.entries(source)) {
       if(typeof method !== 'function') continue
@@ -58,4 +58,19 @@ export function mixin(target, ...sources) {
     }
   }
   return target
+}
+
+export function transfer(target, ...sources) {
+  for(const source of sources) {
+    const properties = Object.getOwnPropertyDescriptors(source)
+
+    for(const [name, descriptor] of Object.entries(properties)) {
+      if(name === 'prototype') {
+        transfer(target.prototype, source.prototype)
+      }
+      if(descriptor.configurable) {
+        Object.defineProperty(target, name, descriptor)
+      }
+    }
+  }
 }
