@@ -34,7 +34,7 @@ Small webcomponent library for simple apps
 
 ```js
 import { Component, Template, Attribute, define, bootstrap } from '@scoutgg/widgets'
-import { hyper as renderer } from '@scoutgg/widgets/source/renderers/hyper'
+import { hyper as renderer } from '@scoutgg/widgets/esm/renderers/hyper'
 import hyper from 'hyperhtml/esm'
 
 // define a component

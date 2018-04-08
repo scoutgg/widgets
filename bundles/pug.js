@@ -2,15 +2,15 @@ import { compileClient } from 'fn-pug/lib'
 import runtime from 'fn-pug/lib/runtime/vdom'
 import vdom from 'virtual-dom'
 
-import { bootstrap as boot } from '../source/decorators/component.js'
-import { vdom as renderer } from '../source/renderers/vdom.js'
+import { bootstrap as boot } from '../esm/decorators/component.js'
+import { vdom as renderer } from '../esm/renderers/vdom.js'
 
-export { Component } from '../source/decorators/component.js'
-export { Attribute } from '../source/decorators/attribute.js'
+export { Component } from '../esm/decorators/component.js'
+export { Attribute } from '../esm/decorators/attribute.js'
 
-import { Template as TemplateDecorator } from '../source/decorators/template.js'
+import { Template as TemplateDecorator } from '../esm/decorators/template.js'
 
-export * from '../source/utils.js'
+export * from '../esm/utils.js'
 
 const pugRuntime = runtime(vdom.h)
 

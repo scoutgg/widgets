@@ -1,14 +1,15 @@
 import * as vdom from 'virtual-dom'
 
-import { Component, Template, Attribute, bootstrap } from '../source/index.js'
-import { define } from '../source/utils.js'
+import { Component, Template, Attribute, bootstrap } from '../esm/index.js'
+import { define } from '../esm/utils.js'
 
-import { vdom as renderer } from '../source/renderers/vdom.js'
+import { vdom as renderer } from '../esm/renderers/vdom.js'
 
 export default define([
   Component('fn'),
   Template(require('./index.pug')),
-  Attribute('is-awesome', Boolean),
+  Attribute('count', Number),
+  Attribute('name', String),
   class Demo extends HTMLElement {
 
   }
@@ -21,6 +22,6 @@ bootstrap([
 const demo = document.createElement('fn-demo')
 
 
-demo.setAttribute('is-awesome', '')
+demo.setAttribute('name', 'world')
 
 document.body.appendChild(demo)

@@ -17,6 +17,11 @@ export function hyper({ bind }) {
         return next()
       },
       render([ callback ], next) {
+        if(!this.html) {
+          this.attachShadow({ mode: 'open' })
+          this.html = bind(this.shadowRoot)
+        }
+
         shedule(this, (...args) => {
           if(typeof callback === 'function') {
             callback(...args)
