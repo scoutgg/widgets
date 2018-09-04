@@ -1,15 +1,16 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.elements = undefined;
 exports.rerender = rerender;
 exports.default = rerenderPlugin;
+exports.elements = void 0;
 
-var _utils = require('../utils.js');
+var _utils = require("../utils.js");
 
-const elements = exports.elements = new Set();
+const elements = new Set();
+exports.elements = elements;
 
 function rerender() {
   return new Promise(resolve => {
@@ -34,10 +35,12 @@ function rerenderPlugin(config) {
         elements.add(this);
         return next();
       },
+
       disconnectedCallback() {
         elements.delete(this);
         return next();
       }
+
     });
   };
 }

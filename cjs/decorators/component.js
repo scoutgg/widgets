@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -8,7 +8,7 @@ exports.getTagName = getTagName;
 exports.register = register;
 exports.bootstrap = bootstrap;
 
-var _utils = require('../utils.js');
+var _utils = require("../utils.js");
 
 const COMPONENTS = [];
 const sggWidgets = Symbol.for('sggWidgets');
@@ -16,19 +16,22 @@ const sggWidgets = Symbol.for('sggWidgets');
 function Component(namespace) {
   return function define(Class) {
     Class.namespace = namespace;
+
     if (customElements[sggWidgets]) {
       return register(Class);
     }
+
     COMPONENTS.push(Class);
   };
 }
 
 function getTagName(Class) {
   if (Class.tagName) return Class.tagName;
-
-  const { namespace, className } = Class;
+  const {
+    namespace,
+    className
+  } = Class;
   const name = className || Class.name;
-
   return Class.tagName = (0, _utils.kebabCase)(namespace + name);
 }
 

@@ -1,11 +1,11 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.queue = queue;
 
-var _utils = require('../utils.js');
+var _utils = require("../utils.js");
 
 function queue(render) {
   const queue = new Set();
@@ -25,9 +25,11 @@ function queue(render) {
       throw error;
     } finally {
       queue.clear();
+
       for (const callback of callbacks) {
         callback();
       }
+
       callbacks.clear();
     }
   }
@@ -36,9 +38,11 @@ function queue(render) {
     if (!queue.size) {
       requestAnimationFrame(attempt);
     }
+
     if (typeof callback === 'function') {
       callbacks.add(callback);
     }
+
     queue.add(element);
   };
 }

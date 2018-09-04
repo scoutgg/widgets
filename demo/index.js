@@ -5,13 +5,20 @@ import { define } from '../esm/utils.js'
 
 import { vdom as renderer } from '../esm/renderers/vdom.js'
 
+import template from './index.pug'
+
 export default define([
   Component('fn'),
-  Template(require('./index.pug')),
+  Template(template),
   Attribute('count', Number),
   Attribute('name', String),
   class Demo extends HTMLElement {
-
+    increment() {
+      this.count += 1
+    }
+    decrement() {
+      this.count -= 1
+    }
   }
 ])
 

@@ -1,26 +1,25 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.Attribute = Attribute;
 
-var _utils = require('../utils.js');
+var _utils = require("../utils.js");
 
 function Attribute(name, type) {
   const property = (0, _utils.camelCase)(name);
   const attribute = (0, _utils.kebabCase)(name);
-
   return function define(Class) {
     if (!Class.observedAttributes) {
       Class.observedAttributes = [];
     }
 
     Class.observedAttributes.push(attribute);
-
     Object.defineProperty(Class.prototype, property, {
       enumerable: true,
       configurable: true,
+
       get() {
         if (type === Boolean) {
           return this.hasAttribute(attribute);
@@ -30,6 +29,7 @@ function Attribute(name, type) {
           return type(this.getAttribute(attribute));
         }
       },
+
       set(value) {
         if (type === Boolean) {
           if (value) {
@@ -41,6 +41,7 @@ function Attribute(name, type) {
           this.setAttribute(attribute, value);
         }
       }
+
     });
   };
 }

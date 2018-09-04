@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -23,20 +23,24 @@ function define(decorators = [], target = decorators.pop()) {
   for (const transform of decorators.reverse()) {
     target = transform(target) || target;
   }
+
   return target;
 }
 
 function middleware(done) {
   const middleware = [];
-
   Object.assign(pipeline, {
     use(...callbacks) {
       return middleware.push(...callbacks), this;
     }
+
   });
 
   function pipeline(...args) {
-    const context = { self: this, index: 0 };
+    const context = {
+      self: this,
+      index: 0
+    };
 
     function next() {
       const method = middleware[context.index++];
@@ -68,6 +72,7 @@ function plugin(target, ...sources) {
       target[property].use(method);
     }
   }
+
   return target;
 }
 
@@ -79,6 +84,7 @@ function transfer(target, ...sources) {
       if (name === 'prototype') {
         transfer(target.prototype, source.prototype);
       }
+
       if (descriptor.configurable) {
         Object.defineProperty(target, name, descriptor);
       }
