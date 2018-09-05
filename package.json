@@ -8,6 +8,7 @@
   "sideEffects": false,
   "scripts": {
     "start": "budo demo --open --live -- --transform-key widgets-demo",
+    "demo-react": "budo demo/react --open --live",
     "readme": "projectz compile",
     "build": "npm run widgets | npm run bundles | npm run readme",
     "widgets": "babel esm --out-dir cjs",
@@ -31,6 +32,7 @@
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
     "babelify": "^9.0.0",
     "browser-pack-flat": "^3.0.8",
     "browserify": "^16.1.0",
@@ -39,6 +41,8 @@
     "fn-pug": "github:fireneslo/fn-pug",
     "hyperhtml": "^2.5.13",
     "projectz": "^1.4.0",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
     "uglify-es": "^3.3.9",
     "virtual-dom": "^2.1.1"
   },
