@@ -1,6 +1,6 @@
 import { camelCase, kebabCase } from '../utils.js'
 
-export function Attribute(name, type) {
+export function Attribute(name, type, options = { default: '' }) {
   const property = camelCase(name)
   const attribute = kebabCase(name)
 
@@ -17,10 +17,12 @@ export function Attribute(name, type) {
       get() {
         if(type === Boolean) {
           return this.hasAttribute(attribute)
-        } else if(type.instance) {
-          return type.instance(this.getAttribute(attribute))
+        }
+        const value = this.getAttribute(attribute)
+        if(type.instance) {
+          return type.instance(value === null ? options.default : value)
         } else {
-          return type(this.getAttribute(attribute))
+          return type(value === null ? options.default : value)
         }
       },
       set(value) {

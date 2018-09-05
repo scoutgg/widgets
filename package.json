@@ -9,6 +9,7 @@
   "scripts": {
     "start": "budo demo --open --live -- --transform-key widgets-demo",
     "demo-react": "budo demo/react --open --live",
+    "demo-react-pug": "budo demo/react-pug --open --live -- --transform-key widgets-demo-react",
     "readme": "projectz compile",
     "build": "npm run widgets | npm run bundles | npm run readme",
     "widgets": "babel esm --out-dir cjs",
@@ -20,6 +21,15 @@
   "author": "Scout Gaming Group <oystein.olsen@scoutgaminggroup.com>",
   "license": "ISC",
   "browserify": {
+    "widgets-demo-react": [
+      [
+        "fn-pug/lib/transform/browserify",
+        {
+          "runtime": "react"
+        }
+      ],
+      "babelify"
+    ],
     "widgets-demo": [
       "fn-pug/lib/transform/browserify",
       "babelify"

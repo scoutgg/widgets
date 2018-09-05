@@ -7,7 +7,9 @@ exports.Attribute = Attribute;
 
 var _utils = require("../utils.js");
 
-function Attribute(name, type) {
+function Attribute(name, type, options = {
+  default: ''
+}) {
   const property = (0, _utils.camelCase)(name);
   const attribute = (0, _utils.kebabCase)(name);
   return function define(Class) {
@@ -23,10 +25,14 @@ function Attribute(name, type) {
       get() {
         if (type === Boolean) {
           return this.hasAttribute(attribute);
-        } else if (type.instance) {
-          return type.instance(this.getAttribute(attribute));
+        }
+
+        const value = this.getAttribute(attribute);
+
+        if (type.instance) {
+          return type.instance(value === null ? options.default : value);
         } else {
-          return type(this.getAttribute(attribute));
+          return type(value === null ? options.default : value);
         }
       },
 
