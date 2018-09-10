@@ -1,71 +1,45 @@
 {
-  "name": "@scoutgg/widgets",
-  "version": "2.2.0",
-  "description": "Small webcomponent library for simple apps",
-  "main": "cjs/index.js",
-  "module": "esm/index.js",
-  "jsnext:main": "esm/index.js",
-  "sideEffects": false,
+  "name": "widgets-lite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "budo demo --open --live -- --transform-key widgets-demo",
-    "demo-react": "budo demo/react --open --live",
-    "demo-react-pug": "budo demo/react-pug --open --live -- --transform-key widgets-demo-react",
-    "readme": "projectz compile",
-    "build": "npm run widgets | npm run bundles | npm run readme",
-    "widgets": "babel esm --out-dir cjs",
-    "bundles": "npm run bundle-hyper | npm run bundle-pug",
-    "bundle-hyper": "browserify bundles/hyper -p common-shakeify -p browser-pack-flat/plugin --standalone sggWidgets | uglifyjs > widgets.hyper.bundle.js",
-    "bundle-pug": "browserify bundles/pug -p common-shakeify --standalone sggWidgets | uglifyjs > widgets.vdom-pug.bundle.js"
+    "serve": "budo src --dir . --dir public --serve build/application.js --live --open --pushstate -- -t babelify",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "Scout Gaming Group <oystein.olsen@scoutgaminggroup.com>",
+  "author": "",
   "license": "ISC",
   "browserify": {
-    "widgets-demo-react": [
-      [
-        "fn-pug/lib/transform/browserify",
-        {
-          "runtime": "react"
-        }
-      ],
-      "babelify"
-    ],
-    "widgets-demo": [
-      "fn-pug/lib/transform/browserify",
-      "babelify"
-    ],
     "transform": [
       "babelify"
     ]
   },
+  "dependencies": {
+    "@scoutgg/widgets": "^2.0.0",
+    "gulp-uglify": "^3.0.1",
+    "highlightjs": "^9.10.0",
+    "hyperhtml": "^2.13.0",
+    "markdown-it": "^8.4.2",
+    "page": "^1.8.6",
+    "uglify": "^0.1.5",
+    "uglifyify": "^5.0.1"
+  },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.0.0",
+    "@babel/core": "^7.0.0-beta.54",
+    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.54",
+    "@babel/plugin-proposal-decorators": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
-    "@babel/preset-react": "^7.0.0",
-    "babelify": "^9.0.0",
-    "browser-pack-flat": "^3.0.8",
-    "browserify": "^16.1.0",
-    "budo": "^11.1.7",
-    "common-shakeify": "^0.4.6",
-    "fn-pug": "github:fireneslo/fn-pug",
-    "hyperhtml": "^2.5.13",
-    "projectz": "^1.4.0",
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2",
-    "uglify-es": "^3.3.9",
-    "virtual-dom": "^2.1.1"
-  },
-  "maintainers": [],
-  "contributors": [
-    "Øystein Ø. Olsen (https://github.com/FireNeslo)"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/scoutgg/widgets.git"
-  },
-  "bugs": {
-    "url": "https://github.com/scoutgg/widgets/issues"
-  },
-  "homepage": "https://github.com/scoutgg/widgets#readme"
+    "babelify": "9",
+    "browserify": "^16.2.2",
+    "disc": "^1.3.3",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-rename": "^1.4.0",
+    "handlebars": "^4.0.12",
+    "lodash": "^4.17.10",
+    "pluralize": "^7.0.0",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
+  }
 }
