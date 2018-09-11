@@ -26,6 +26,7 @@ import '../github-menu/github-menu'
 })
 export default class FromGithub extends HTMLElement {
   async connectedCallback() {
+    // Load the markdown file from github based on slug from the URL param.
     const response = await fetch(`https://cdn.rawgit.com/scoutgg/widgets-docs/master/${this.slug}.md`)
     this.markdown = await response.text()
     this.render()

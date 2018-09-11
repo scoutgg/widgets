@@ -42,21 +42,31 @@ import config from '../../config'
     <h1>docs</h1>
     <ul>
       ${(this.pages || []).map((page)=> {
-        return `<li><a href="${config.basePath || ''}/docs/${page}">${capitalize(lowerCase(this.removeLeadingNumber(page)))}</a></li>`
+        return `
+          <li>
+            <a href="${config.basePath || ''}/docs/${page}">
+              ${capitalize(lowerCase(this.removeLeadingNumber(page)))}
+            </a>
+          </li>`
       })}
     </ul>
   `
 })
 export default class GithubMenu extends HTMLElement {
   async connectedCallback() {
+    // Load markdown file-tree from github
     let pages = await fetch('https://api.github.com/repos/scoutgg/widgets-docs/git/trees/master')
     pages = await pages.json()
+    // Get the file paths, filter the out non-markdown files,
+    // remove trailing .md extension.
     this.pages = pages.tree
       .map(file=>file.path)
       .filter(file=>file.includes('.md') && file !== 'README.md')
       .map(file=> file.slice(0, file.indexOf('.md')))
     this.render()
   }
+  // Github markdown files comes with a leading number for some files. We
+  // do this to make github sort them above the alphabetical order.
   removeLeadingNumber(name) {
     if(!isNaN(name[0])) name = name.slice(name.indexOf('-'), name.length)
     return name
