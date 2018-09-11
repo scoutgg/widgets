@@ -13,14 +13,6 @@ var uglifyOpts = {
 }
 gulp.task('default', function () {
     return browserify('src/index.js')
-        .transform('babelify', {
-            global: true,
-            presets: ['@babel/env'],
-            "plugins": [
-    ["@babel/plugin-proposal-decorators", { "legacy": true }],
-    ["@babel/plugin-proposal-class-properties", { "loose" : true }]
-  ]
-        })
       .transform('uglifyify', uglifyOpts)
       .bundle()
       .pipe(source('application.js')) // Converts To Vinyl Stream
