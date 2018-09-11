@@ -7,6 +7,7 @@ const rename = require('gulp-rename')
 const uglify = require('gulp-uglify')
 var uglifyOpts = {
   global: true,
+  keep_classnames: true,
   mangle: {
     safari10: true,
   },

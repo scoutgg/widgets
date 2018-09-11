@@ -294,17 +294,17 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
     </style>
     <demo-navigation current-route=${this.route} />
     <demo-page-router onrouteChanged=${e=>this.routeChanged(e)} />
-  `}))(_class=class extends HTMLElement{routeChanged({context:e}){this.route=e.pathname,this.render()}})||_class)||_class;exports.default=App;
+  `}))(_class=class App extends HTMLElement{routeChanged({context:e}){this.route=e.pathname,this.render()}})||_class)||_class;exports.default=App;
 
 },{"@scoutgg/widgets":4}],95:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_class,_widgets=require("@scoutgg/widgets");let About=(_dec=(0,_widgets.Component)("demo"))(_class=(_dec2=(0,_widgets.Template)(function(e){e`
     <h1>☕Fresh new component «about»</h1>
-  `}))(_class=class extends HTMLElement{})||_class)||_class;exports.default=About;
+  `}))(_class=class About extends HTMLElement{})||_class)||_class;exports.default=About;
 
 },{"@scoutgg/widgets":4}],96:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_dec3,_class,_widgets=require("@scoutgg/widgets");require("../markdown/markdown");let FromGithub=(_dec=(0,_widgets.Component)("demo"))(_class=(_dec2=(0,_widgets.Attribute)("slug",String))(_class=(_dec3=(0,_widgets.Template)(function(e){e`
 <demo-markdown>${{html:this.markdown}}</demo-markdown>
-  `}))(_class=class extends HTMLElement{async connectedCallback(){const e=await fetch(`https://cdn.rawgit.com/scoutgg/widgets-docs/master/${this.slug}.md`);this.markdown=await e.text(),this.render()}})||_class)||_class)||_class;exports.default=FromGithub;
+  `}))(_class=class FromGithub extends HTMLElement{async connectedCallback(){const e=await fetch(`https://cdn.rawgit.com/scoutgg/widgets-docs/master/${this.slug}.md`);this.markdown=await e.text(),this.render()}})||_class)||_class)||_class;exports.default=FromGithub;
 
 },{"../markdown/markdown":99,"@scoutgg/widgets":4}],97:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_dec3,_class,_widgets=require("@scoutgg/widgets");let Hello=(_dec=(0,_widgets.Component)("demo"))(_class=(_dec2=(0,_widgets.Attribute)("name",String,{default:"World"}))(_class=(_dec3=(0,_widgets.Template)(function(e){e`
@@ -356,7 +356,7 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
         Fork on Github!<fa-icon category="fab" name="github" />
       </a>
     </section>
-  `}))(_class=class extends HTMLElement{})||_class)||_class)||_class;exports.default=Hello;
+  `}))(_class=class Hello extends HTMLElement{})||_class)||_class)||_class;exports.default=Hello;
 
 },{"@scoutgg/widgets":4}],98:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_dec3,_dec4,_class,_widgets=require("@scoutgg/widgets");let Icon=(_dec=(0,_widgets.Component)("fa"))(_class=(_dec2=(0,_widgets.Attribute)("name",String))(_class=(_dec3=(0,_widgets.Attribute)("category",String))(_class=(_dec4=(0,_widgets.Template)(function(e){e`
@@ -364,7 +364,7 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
       @import 'https://use.fontawesome.com/releases/v5.3.1/css/all.css';
     </style>
     <span class=${this.icon}></span>
-  `}))(_class=class extends HTMLElement{get icon(){return`${this.category||"fas"} fa-${this.name}`}})||_class)||_class)||_class)||_class;exports.default=Icon;
+  `}))(_class=class Icon extends HTMLElement{get icon(){return`${this.category||"fas"} fa-${this.name}`}})||_class)||_class)||_class)||_class;exports.default=Icon;
 
 },{"@scoutgg/widgets":4}],99:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_dec3,_class,_widgets=require("@scoutgg/widgets"),_markdownIt=_interopRequireDefault(require("markdown-it")),_highlightjs=_interopRequireDefault(require("highlightjs")),_hyperhtml=require("hyperhtml");function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}let Markdown=(_dec=(0,_widgets.Component)("demo"))(_class=(_dec2=(0,_widgets.Attribute)("md",String))(_class=(_dec3=(0,_widgets.Template)(function(e){e`
@@ -373,7 +373,7 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
       @import 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css';
     </style>
     ${{html:this.parsedMarkdown}}
-  `}))(_class=class extends HTMLElement{connectedCallback(){this.markdownIt=new _markdownIt.default,this.observer=new MutationObserver(e=>{this.render(()=>{Array.from(this.shadowRoot.querySelectorAll("pre code")).forEach(e=>{_highlightjs.default.highlightBlock(e)})})}).observe(this,{childList:!0,characterData:!0})}get parsedMarkdown(){return this.markdownIt.render(this.textContent)}})||_class)||_class)||_class;exports.default=Markdown;
+  `}))(_class=class Markdown extends HTMLElement{connectedCallback(){this.markdownIt=new _markdownIt.default,this.observer=new MutationObserver(e=>{this.render(()=>{Array.from(this.shadowRoot.querySelectorAll("pre code")).forEach(e=>{_highlightjs.default.highlightBlock(e)})})}).observe(this,{childList:!0,characterData:!0})}get parsedMarkdown(){return this.markdownIt.render(this.textContent)}})||_class)||_class)||_class;exports.default=Markdown;
 
 },{"@scoutgg/widgets":4,"highlightjs":9,"hyperhtml":14,"markdown-it":28}],100:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_dec3,_class,_widgets=require("@scoutgg/widgets"),_hyperhtml=require("hyperhtml"),_page=_interopRequireDefault(require("page")),_config=_interopRequireDefault(require("../../config"));function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}let Navigation=(_dec=(0,_widgets.Component)("demo"))(_class=(_dec2=(0,_widgets.Attribute)("currentRoute",String))(_class=(_dec3=(0,_widgets.Template)(function(e){e`
@@ -407,10 +407,10 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
           <a  class=${this.isCurrent(e)} href="${e[1]}">${e[0]}</a>
         `)}
     </nav>
-  `}))(_class=class extends HTMLElement{connectedCallback(){this.routes=[["Hello!",`${_config.default.basePath||""}/`],["Getting started",`${_config.default.basePath||""}/docs/getting-started`],["Documentation",`${_config.default.basePath||""}/docs/introduction`],["About",`${_config.default.basePath||""}/about`]],this.render()}route(e){(0,_page.default)(e)}isCurrent(e){return e[1]===this.currentRoute?"active menu-link":"menu-link"}})||_class)||_class)||_class;exports.default=Navigation;
+  `}))(_class=class Navigation extends HTMLElement{connectedCallback(){this.routes=[["Hello!",`${_config.default.basePath||""}/`],["Getting started",`${_config.default.basePath||""}/docs/getting-started`],["Documentation",`${_config.default.basePath||""}/docs/introduction`],["About",`${_config.default.basePath||""}/about`]],this.render()}route(e){(0,_page.default)(e)}isCurrent(e){return e[1]===this.currentRoute?"active menu-link":"menu-link"}})||_class)||_class)||_class;exports.default=Navigation;
 
 },{"../../config":102,"@scoutgg/widgets":4,"hyperhtml":14,"page":85}],101:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_class,_widgets=require("@scoutgg/widgets"),_routes=_interopRequireDefault(require("../../config/routes.js")),_page=_interopRequireDefault(require("page")),_config=_interopRequireDefault(require("../../config"));function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}let PageRouter=(_dec=(0,_widgets.Component)("demo"))(_class=(_dec2=(0,_widgets.Template)(function(e){e`${this.route}`}))(_class=class extends HTMLElement{connectedCallback(){_config.default.basePath&&_page.default.base(_config.default.basePath),this.route="",Object.keys(_routes.default).forEach(e=>{(0,_page.default)(e,(t,s)=>{const a="function"==typeof _routes.default[e]?new _routes.default[e]:new _routes.default[e].component;_routes.default[e].class&&a.classList.add(_routes.default[e].class),this.setAttribute("class",_routes.default[e].parentClass||""),Object.keys(t.params).forEach(e=>{isNaN(e)&&a.setAttribute(e,t.params[e])}),this.route=a,this.render(()=>{this.emit("routeChanged",{context:t})})})}),(0,_page.default)()}})||_class)||_class;exports.default=PageRouter;
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_class,_widgets=require("@scoutgg/widgets"),_routes=_interopRequireDefault(require("../../config/routes.js")),_page=_interopRequireDefault(require("page")),_config=_interopRequireDefault(require("../../config"));function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}let PageRouter=(_dec=(0,_widgets.Component)("demo"))(_class=(_dec2=(0,_widgets.Template)(function(e){e`${this.route}`}))(_class=class PageRouter extends HTMLElement{connectedCallback(){_config.default.basePath&&_page.default.base(_config.default.basePath),this.route="",Object.keys(_routes.default).forEach(e=>{(0,_page.default)(e,(t,s)=>{const a="function"==typeof _routes.default[e]?new _routes.default[e]:new _routes.default[e].component;_routes.default[e].class&&a.classList.add(_routes.default[e].class),this.setAttribute("class",_routes.default[e].parentClass||""),Object.keys(t.params).forEach(e=>{isNaN(e)&&a.setAttribute(e,t.params[e])}),this.route=a,this.render(()=>{this.emit("routeChanged",{context:t})})})}),(0,_page.default)()}})||_class)||_class;exports.default=PageRouter;
 
 },{"../../config":102,"../../config/routes.js":103,"@scoutgg/widgets":4,"page":85}],102:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;const script=document.querySelector(".widgets-script"),config={};Object.keys(script.dataset).forEach(e=>{config[e]=script.dataset[e]});var _default=config;exports.default=_default;
