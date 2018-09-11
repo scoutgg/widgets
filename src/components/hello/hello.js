@@ -10,7 +10,7 @@ import { Component, Template, Attribute } from '@scoutgg/widgets'
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background-image: url(/public/milkyway.jpg);
+        background-image: url(public/milkyway.jpg);
         background-size: cover;
         background-position: center center;
         height: 70vh;

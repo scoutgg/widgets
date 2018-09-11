@@ -31,7 +31,7 @@ import config from '../../config'
     </style>
     <nav>
       <div class="logo">
-        <img src="/public/sgg-logo.png" />
+        <img src="public/sgg-logo.png" />
       </div>
       ${this.routes.map((route)=> {
         return wire()`
