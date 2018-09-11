@@ -1,6 +1,7 @@
 import { Component, Template, Attribute } from '@scoutgg/widgets'
 import { wire } from 'hyperhtml'
 import page from 'page'
+import config from '../../config'
 
 @Component('demo')
 @Attribute('currentRoute', String)
@@ -43,10 +44,10 @@ import page from 'page'
 export default class Navigation extends HTMLElement {
   connectedCallback() {
     this.routes = [
-      ['Hello!', '/'],
-      ['Getting started', '/docs/getting-started'],
-      ['Documentation', '/docs/introduction'],
-      ['About', '/about'],
+      ['Hello!', `${config.basePath || ''}/`],
+      ['Getting started', `${config.basePath || ''}/docs/getting-started`],
+      ['Documentation', `${config.basePath || ''}/docs/introduction`],
+      ['About', `${config.basePath || ''}/about`],
     ]
     this.render()
   }

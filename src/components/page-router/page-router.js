@@ -1,11 +1,15 @@
 import { Component, Template, Attribute } from '@scoutgg/widgets'
 import routes from '../../config/routes.js'
 import page from 'page'
+import config from '../../config'
 
 @Component('demo')
 @Template(function (html) { html `${this.route}` })
 export default class PageRouter extends HTMLElement {
   connectedCallback() {
+
+    if(config.basePath) page.base(config.basePath)
+
     this.route = ''
     Object.keys(routes).forEach(route => {
       page(route, (context, next) => {
