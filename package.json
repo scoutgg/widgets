@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "budo src --dir . --dir public --serve build/application.js --live --open --pushstate -- -t babelify",
+    "serve": "budo src --dir . --dir public --serve widgets/build/application.js --live --open --pushstate -- -t babelify",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
