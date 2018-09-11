@@ -14,7 +14,6 @@ import './components/page-router/page-router'
 import './components/from-github/from-github'
 import './app'
 
-
 // Bootstrap Widgets (Start it)
 bootstrap([
   emit,
