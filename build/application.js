@@ -314,7 +314,7 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background-image: url(/public/milkyway.jpg);
+        background-image: url(public/milkyway.jpg);
         background-size: cover;
         background-position: center center;
         height: 70vh;
@@ -401,7 +401,7 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
     </style>
     <nav>
       <div class="logo">
-        <img src="/public/sgg-logo.png" />
+        <img src="public/sgg-logo.png" />
       </div>
       ${this.routes.map(e=>(0,_hyperhtml.wire)()`
           <a  class=${this.isCurrent(e)} href="${e[1]}">${e[0]}</a>
