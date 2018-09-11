@@ -42,7 +42,7 @@ import config from '../../config'
     <h1>docs</h1>
     <ul>
       ${(this.pages || []).map((page)=> {
-        return `<li><a href="${config.basePath || ''}/docs/${page}">${capitalize(lowerCase(page))}</a></li>`
+        return `<li><a href="${config.basePath || ''}/docs/${page}">${capitalize(lowerCase(this.removeLeadingNumber(page)))}</a></li>`
       })}
     </ul>
   `
@@ -54,11 +54,11 @@ export default class GithubMenu extends HTMLElement {
     this.pages = pages.tree
       .map(file=>file.path)
       .filter(file=>file.includes('.md') && file !== 'README.md')
-      .map(file=> {
-        file = file.slice(0, file.indexOf('.md'))
-        if(!isNaN(file[0])) file = file.slice(file.indexOf('-'), file.length)
-        return file
-      })
+      .map(file=> file.slice(0, file.indexOf('.md')))
     this.render()
+  }
+  removeLeadingNumber(name) {
+    if(!isNaN(name[0])) name = name.slice(name.indexOf('-'), name.length)
+    return name
   }
 }
