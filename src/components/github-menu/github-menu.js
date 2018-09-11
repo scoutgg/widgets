@@ -55,7 +55,9 @@ export default class GithubMenu extends HTMLElement {
       .map(file=>file.path)
       .filter(file=>file.includes('.md') && file !== 'README.md')
       .map(file=> {
-        return file.slice(0, file.indexOf('.md'))
+        file = file.slice(0, file.indexOf('.md'))
+        if(!isNaN(file[0])) file = file.slice(file.indexOf('-'), file.length)
+        return file
       })
     this.render()
   }

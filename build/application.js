@@ -455,7 +455,7 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
     <ul>
       ${(this.pages||[]).map(e=>`<li><a href="${_config.default.basePath||""}/docs/${e}">${(0,_capitalize.default)((0,_lowerCase.default)(e))}</a></li>`)}
     </ul>
-  `}))(_class=class GithubMenu extends HTMLElement{async connectedCallback(){let e=await fetch("https://api.github.com/repos/scoutgg/widgets-docs/git/trees/master");e=await e.json(),this.pages=e.tree.map(e=>e.path).filter(e=>e.includes(".md")&&"README.md"!==e).map(e=>e.slice(0,e.indexOf(".md"))),this.render()}})||_class)||_class;exports.default=GithubMenu;
+  `}))(_class=class GithubMenu extends HTMLElement{async connectedCallback(){let e=await fetch("https://api.github.com/repos/scoutgg/widgets-docs/git/trees/master");e=await e.json(),this.pages=e.tree.map(e=>e.path).filter(e=>e.includes(".md")&&"README.md"!==e).map(e=>(e=e.slice(0,e.indexOf(".md")),isNaN(e[0])||(e=e.slice(e.indexOf("-"),e.length)),e)),this.render()}})||_class)||_class;exports.default=GithubMenu;
 
 },{"../../config":134,"@scoutgg/widgets":4,"lodash/capitalize":50,"lodash/lowerCase":55}],129:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_dec3,_class,_widgets=require("@scoutgg/widgets");let Hello=(_dec=(0,_widgets.Component)("demo"))(_class=(_dec2=(0,_widgets.Attribute)("name",String,{default:"World"}))(_class=(_dec3=(0,_widgets.Template)(function(e){e`
