@@ -458,7 +458,7 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
   `}))(_class=class GithubMenu extends HTMLElement{async connectedCallback(){let e=await fetch("https://api.github.com/repos/scoutgg/widgets-docs/git/trees/master");e=await e.json(),this.pages=e.tree.map(e=>e.path).filter(e=>e.includes(".md")&&"README.md"!==e).map(e=>e.slice(0,e.indexOf(".md"))),this.render()}removeLeadingNumber(e){return isNaN(e[0])||(e=e.slice(e.indexOf("-"),e.length)),e}})||_class)||_class;exports.default=GithubMenu;
 
 },{"../../config":134,"@scoutgg/widgets":4,"lodash/capitalize":50,"lodash/lowerCase":55}],129:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_dec3,_class,_widgets=require("@scoutgg/widgets");let Hello=(_dec=(0,_widgets.Component)("demo"))(_class=(_dec2=(0,_widgets.Attribute)("name",String,{default:"World"}))(_class=(_dec3=(0,_widgets.Template)(function(e){e`
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_dec3,_class,_widgets=require("@scoutgg/widgets");require("../icon/icon");let Hello=(_dec=(0,_widgets.Component)("demo"))(_class=(_dec2=(0,_widgets.Attribute)("name",String,{default:"World"}))(_class=(_dec3=(0,_widgets.Template)(function(e){e`
     <style>
       section {
         display: flex;
@@ -477,11 +477,22 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
       .usp {
         flex-direction: row;
         justify-content: space-around;
+        align-items: flex-start;
+        min-height: 50vh;
       }
       .box {
         width: 15%;
-        min-width: 150px;
+        min-width: 125px;
+      }
+      .box h2 {
+        white-space: nowrap;
+        filter: none;
         text-align: center;
+        color: var(--accent-color-1);
+        font-weight: 500;
+      }
+      .box .fa-icon {
+        color: var(--accent-color-2);
       }
       h1, h2, h3, h4, h5 {
         margin: 0;
@@ -498,17 +509,27 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
         font-size: 1.5em;
       }
       .btn {
-        display: block;
         padding: 1em;
         margin: 1em;
         background-color: var(--accent-color-1);
         border-radius: 2em;
         font-weight: 500;
         font-size: 1.2em;
+        white-space: nowrap;
       }
       a {
         text-decoration: none;
         color: var(--accent-color-text)
+      }
+      .box fa-icon {
+        color: var(--accent-color-2);
+        font-size: 2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        height: 2.5em;
+        width: 2.5em;
       }
     </style>
     <section class="splash">
@@ -521,7 +542,7 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
     </section>
     <section class="usp">
       <div class="box">
-        <demo-icon name="project-diagram" />
+        <fa-icon name="project-diagram" />
         <h2>Components</h2>
         <p>
           Widgets is a library connecting templating language with syntactical
@@ -530,7 +551,7 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
       </div>
 
       <div class="box">
-        <demo-icon name="server" />
+        <fa-icon name="server" />
         <h2>Production ready</h2>
         <p>
           Widgets is a production ready library used by Scout Gaming Group
@@ -540,7 +561,7 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
       </div>
 
       <div class="box">
-        <demo-icon name="code" />
+        <fa-icon name="code" />
         <h2>Less configuration!</h2>
         <p>
           With widgets you get simple boiler plates and tools to save time
@@ -551,7 +572,7 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
     </section>
   `}))(_class=class Hello extends HTMLElement{})||_class)||_class)||_class;exports.default=Hello;
 
-},{"@scoutgg/widgets":4}],130:[function(require,module,exports){
+},{"../icon/icon":130,"@scoutgg/widgets":4}],130:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_dec3,_dec4,_class,_widgets=require("@scoutgg/widgets");let Icon=(_dec=(0,_widgets.Component)("fa"))(_class=(_dec2=(0,_widgets.Attribute)("name",String))(_class=(_dec3=(0,_widgets.Attribute)("category",String))(_class=(_dec4=(0,_widgets.Template)(function(e){e`
     <style>
       @import 'https://use.fontawesome.com/releases/v5.3.1/css/all.css';
