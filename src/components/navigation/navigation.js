@@ -31,7 +31,9 @@ import config from '../../config'
     </style>
     <nav>
       <div class="logo">
-        <img src="public/sgg-logo.png" />
+        <a href="https://www.scoutgaminggroup.com" target="_blank">
+          <img src="public/sgg-logo.png" />
+        </a>
       </div>
       ${this.routes.map((route)=> {
         return wire()`

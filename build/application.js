@@ -453,7 +453,7 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
     </style>
     <h1>docs</h1>
     <ul>
-      ${(this.pages||[]).map(e=>`<li><a href="${_config.default.basePath||""}/docs/${e}">${(0,_capitalize.default)((0,_lowerCase.default)(this.removeLeadingNumber(e)))}</a></li>`)}
+      ${(this.pages||[]).map(e=>`\n          <li>\n            <a href="${_config.default.basePath||""}/docs/${e}">\n              ${(0,_capitalize.default)((0,_lowerCase.default)(this.removeLeadingNumber(e)))}\n            </a>\n          </li>`)}
     </ul>
   `}))(_class=class GithubMenu extends HTMLElement{async connectedCallback(){let e=await fetch("https://api.github.com/repos/scoutgg/widgets-docs/git/trees/master");e=await e.json(),this.pages=e.tree.map(e=>e.path).filter(e=>e.includes(".md")&&"README.md"!==e).map(e=>e.slice(0,e.indexOf(".md"))),this.render()}removeLeadingNumber(e){return isNaN(e[0])||(e=e.slice(e.indexOf("-"),e.length)),e}})||_class)||_class;exports.default=GithubMenu;
 
@@ -465,21 +465,33 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+      }
+      .splash {
         background-image: url(public/milkyway.jpg);
         background-size: cover;
         background-position: center center;
         height: 70vh;
         color: var(--primary-color-text);
       }
+      .usp {
+        flex-direction: row;
+        justify-content: space-around;
+      }
+      .box {
+        width: 15%;
+        min-width: 150px;
+        text-align: center;
+      }
       h1, h2, h3, h4, h5 {
         margin: 0;
         padding: 0;
-        color: var(--primary-color-text, #fff);
         font-weight: 300;
         filter: drop-shadow(1px 1px 1px rgba(0,0,0,.6));
       }
       h1 {
         font-size: 8em;
+        color: var(--primary-color-text, #fff);
         color: var(--accent-color-1);
       }
       h5 {
@@ -499,13 +511,43 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
         color: var(--accent-color-text)
       }
     </style>
-    <section>
+    <section class="splash">
       <h2>Introducing</h2>
       <h1>Widgets</h1>
       <h5>A small front-end library by Scout Gaming Group</h5>
       <a class="btn" href="https://www.github.com/scoutgg/widgets">
         Fork on Github!<fa-icon category="fab" name="github" />
       </a>
+    </section>
+    <section class="usp">
+      <div class="box">
+        <demo-icon name="project-diagram" />
+        <h2>Components</h2>
+        <p>
+          Widgets is a library connecting templating language with syntactical
+          sugar for using Web Components.
+        </p>
+      </div>
+
+      <div class="box">
+        <demo-icon name="server" />
+        <h2>Production ready</h2>
+        <p>
+          Widgets is a production ready library used by Scout Gaming Group
+          and our clients. Easily create components libraries to suite your
+          personal og business needs.
+        </p>
+      </div>
+
+      <div class="box">
+        <demo-icon name="code" />
+        <h2>Less configuration!</h2>
+        <p>
+          With widgets you get simple boiler plates and tools to save time
+          configuring complex build tools and start focusing on your code
+          and getting things done again.
+        </p>
+      </div>
     </section>
   `}))(_class=class Hello extends HTMLElement{})||_class)||_class)||_class;exports.default=Hello;
 
@@ -552,7 +594,9 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
     </style>
     <nav>
       <div class="logo">
-        <img src="public/sgg-logo.png" />
+        <a href="https://www.scoutgaminggroup.com" target="_blank">
+          <img src="public/sgg-logo.png" />
+        </a>
       </div>
       ${this.routes.map(e=>(0,_hyperhtml.wire)()`
           <a  class=${this.isCurrent(e)} href="${e[1]}">${e[0]}</a>
@@ -561,7 +605,7 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
   `}))(_class=class Navigation extends HTMLElement{connectedCallback(){this.routes=[["Hello!",`${_config.default.basePath||""}/`],["Getting started",`${_config.default.basePath||""}/docs/getting-started`],["Documentation",`${_config.default.basePath||""}/docs/introduction`],["About",`${_config.default.basePath||""}/about`]],this.render()}route(e){(0,_page.default)(e)}isCurrent(e){return e[1]===this.currentRoute?"active menu-link":"menu-link"}})||_class)||_class)||_class;exports.default=Navigation;
 
 },{"../../config":134,"@scoutgg/widgets":4,"hyperhtml":14,"page":116}],133:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_class,_widgets=require("@scoutgg/widgets"),_routes=_interopRequireDefault(require("../../config/routes.js")),_page=_interopRequireDefault(require("page")),_config=_interopRequireDefault(require("../../config"));function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}let PageRouter=(_dec=(0,_widgets.Component)("demo"))(_class=(_dec2=(0,_widgets.Template)(function(e){e`${this.route}`}))(_class=class PageRouter extends HTMLElement{connectedCallback(){_config.default.basePath&&_page.default.base(_config.default.basePath),this.route="",Object.keys(_routes.default).forEach(e=>{(0,_page.default)(e,(t,s)=>{const a="function"==typeof _routes.default[e]?new _routes.default[e]:new _routes.default[e].component;_routes.default[e].class&&a.classList.add(_routes.default[e].class),this.setAttribute("class",_routes.default[e].parentClass||""),Object.keys(t.params).forEach(e=>{isNaN(e)&&a.setAttribute(e,t.params[e])}),this.route=a,this.render(()=>{this.emit("routeChanged",{context:t})})})}),(0,_page.default)()}})||_class)||_class;exports.default=PageRouter;
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_class,_widgets=require("@scoutgg/widgets"),_routes=_interopRequireDefault(require("../../config/routes.js")),_page=_interopRequireDefault(require("page")),_config=_interopRequireDefault(require("../../config"));function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}let PageRouter=(_dec=(0,_widgets.Component)("demo"))(_class=(_dec2=(0,_widgets.Template)(function(e){e`${this.route}`}))(_class=class PageRouter extends HTMLElement{connectedCallback(){_config.default.basePath&&_page.default.base(_config.default.basePath),this.route="",Object.keys(_routes.default).forEach(e=>{(0,_page.default)(e,(t,s)=>{const a="function"==typeof _routes.default[e]?new _routes.default[e]:new _routes.default[e].component;_routes.default[e].class&&a.classList.add(_routes.default[e].class),this.setAttribute("class",_routes.default[e].parentClass||""),Object.keys(t.params).forEach(e=>{isNaN(e)&&a.setAttribute(e,t.params[e])}),this.route=a,this.render(()=>{this.emit("routeChanged",{context:t})})})}),(0,_page.default)();const e=window.location.hash.slice(1);e&&(0,_page.default)(e)}})||_class)||_class;exports.default=PageRouter;
 
 },{"../../config":134,"../../config/routes.js":135,"@scoutgg/widgets":4,"page":116}],134:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;const script=document.querySelector(".widgets-script"),config={};Object.keys(script.dataset).forEach(e=>{config[e]=script.dataset[e]});var _default=config;exports.default=_default;
