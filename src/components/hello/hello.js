@@ -1,4 +1,5 @@
 import { Component, Template, Attribute } from '@scoutgg/widgets'
+import '../icon/icon'
 
 @Component('demo')
 @Attribute('name', String, { default: 'World' })
@@ -22,11 +23,22 @@ import { Component, Template, Attribute } from '@scoutgg/widgets'
       .usp {
         flex-direction: row;
         justify-content: space-around;
+        align-items: flex-start;
+        min-height: 50vh;
       }
       .box {
         width: 15%;
-        min-width: 150px;
+        min-width: 125px;
+      }
+      .box h2 {
+        white-space: nowrap;
+        filter: none;
         text-align: center;
+        color: var(--accent-color-1);
+        font-weight: 500;
+      }
+      .box .fa-icon {
+        color: var(--accent-color-2);
       }
       h1, h2, h3, h4, h5 {
         margin: 0;
@@ -43,17 +55,27 @@ import { Component, Template, Attribute } from '@scoutgg/widgets'
         font-size: 1.5em;
       }
       .btn {
-        display: block;
         padding: 1em;
         margin: 1em;
         background-color: var(--accent-color-1);
         border-radius: 2em;
         font-weight: 500;
         font-size: 1.2em;
+        white-space: nowrap;
       }
       a {
         text-decoration: none;
         color: var(--accent-color-text)
+      }
+      .box fa-icon {
+        color: var(--accent-color-2);
+        font-size: 2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        height: 2.5em;
+        width: 2.5em;
       }
     </style>
     <section class="splash">
@@ -66,7 +88,7 @@ import { Component, Template, Attribute } from '@scoutgg/widgets'
     </section>
     <section class="usp">
       <div class="box">
-        <demo-icon name="project-diagram" />
+        <fa-icon name="project-diagram" />
         <h2>Components</h2>
         <p>
           Widgets is a library connecting templating language with syntactical
@@ -75,7 +97,7 @@ import { Component, Template, Attribute } from '@scoutgg/widgets'
       </div>
 
       <div class="box">
-        <demo-icon name="server" />
+        <fa-icon name="server" />
         <h2>Production ready</h2>
         <p>
           Widgets is a production ready library used by Scout Gaming Group
@@ -85,7 +107,7 @@ import { Component, Template, Attribute } from '@scoutgg/widgets'
       </div>
 
       <div class="box">
-        <demo-icon name="code" />
+        <fa-icon name="code" />
         <h2>Less configuration!</h2>
         <p>
           With widgets you get simple boiler plates and tools to save time
