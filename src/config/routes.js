@@ -12,5 +12,8 @@ module.exports = {
     parentClass: 'full-size',
   },
   '/about': About,
-  '/docs/:slug': FromGithub,
+  '/docs/:slug': {
+    component: FromGithub,
+    parentClass: 'full-size',
+  },
 }

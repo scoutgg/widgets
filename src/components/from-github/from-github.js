@@ -11,9 +11,12 @@ import '../github-menu/github-menu'
     display: flex;
   }
   demo-github-menu {
-    min-width: 225px;
+    min-width: 340px;
+    margin-right: 1em;
   }
   demo-markdown {
+    width: 100%;
+    max-width: 1000px;
     flex: 1;
   }
 </style>
