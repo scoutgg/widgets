@@ -583,8 +583,13 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
 },{"@scoutgg/widgets":4}],131:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_dec3,_class,_widgets=require("@scoutgg/widgets"),_markdownIt=_interopRequireDefault(require("markdown-it")),_highlightjs=_interopRequireDefault(require("highlightjs")),_hyperhtml=require("hyperhtml");function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}let Markdown=(_dec=(0,_widgets.Component)("demo"))(_class=(_dec2=(0,_widgets.Attribute)("md",String))(_class=(_dec3=(0,_widgets.Template)(function(e){e`
     <style>
-      @import 'https://rawgit.com/markdowncss/air/master/css/air.css';
+      @import 'https://rawgit.com/sindresorhus/github-markdown-css/gh-pages/github-markdown.css';
       @import 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css';
+      img {
+        border-radius: 0;
+        height: auto !important;
+        margin: 0 auto;
+      }
     </style>
     ${{html:this.parsedMarkdown}}
   `}))(_class=class Markdown extends HTMLElement{connectedCallback(){this.markdownIt=new _markdownIt.default,this.observer=new MutationObserver(e=>{this.render(()=>{Array.from(this.shadowRoot.querySelectorAll("pre code")).forEach(e=>{_highlightjs.default.highlightBlock(e)})})}).observe(this,{childList:!0,characterData:!0})}get parsedMarkdown(){return this.markdownIt.render(this.textContent)}})||_class)||_class)||_class;exports.default=Markdown;
