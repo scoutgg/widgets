@@ -8,7 +8,7 @@ import { wire } from 'hyperhtml'
 @Template(function (html) {
   html `
     <style>
-      @import 'https://rawgit.com/markdowncss/air/master/css/air.css';
+      @import 'https://rawgit.com/sindresorhus/github-markdown-css/gh-pages/github-markdown.css';
       @import 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css';
       img {
         border-radius: 0;
