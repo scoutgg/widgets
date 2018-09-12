@@ -47,8 +47,7 @@ export default class Navigation extends HTMLElement {
   connectedCallback() {
     this.routes = [
       ['Hello!', `${config.basePath || ''}/`],
-      ['Getting started', `${config.basePath || ''}/docs/getting-started`],
-      ['Documentation', `${config.basePath || ''}/docs/introduction`],
+      ['Documentation', `${config.basePath || ''}/docs/0-introduction`],
       ['About', `${config.basePath || ''}/about`],
     ]
     this.render()
