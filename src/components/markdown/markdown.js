@@ -10,6 +10,11 @@ import { wire } from 'hyperhtml'
     <style>
       @import 'https://rawgit.com/markdowncss/air/master/css/air.css';
       @import 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css';
+      img {
+        border-radius: 0;
+        height: auto !important;
+        margin: 0 auto;
+      }
     </style>
     ${ { html: this.parsedMarkdown } }
   `
