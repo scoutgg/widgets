@@ -397,6 +397,22 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
   `}))(_class=class About extends HTMLElement{})||_class)||_class;exports.default=About;
 
 },{"@scoutgg/widgets":4}],127:[function(require,module,exports){
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_dec3,_dec4,_dec5,_dec6,_class,_widgets=require("@scoutgg/widgets");let Animate=(_dec=(0,_widgets.Component)("demo"))(_class=(_dec2=(0,_widgets.Attribute)("name",String,{default:"zoomIn"}))(_class=(_dec3=(0,_widgets.Attribute)("delay",String,{default:"0s"}))(_class=(_dec4=(0,_widgets.Attribute)("duration",String))(_class=(_dec5=(0,_widgets.Attribute)("loop",Boolean,{default:!1}))(_class=(_dec6=(0,_widgets.Template)(function(t){t`
+  <style>
+    @import 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css';
+    :host {
+      display: contents;
+    }
+    .content {
+      display: var(--animate-css-content-display, block);
+    }
+  </style>
+  <div class=${this.classes} style=${this.delayStyle}>
+    <slot></slot>
+  </div>
+  `}))(_class=class Animate extends HTMLElement{get delayStyle(){let t=`animation-delay:${this.delay};`;return this.duration&&(t+=`animation-duration:${this.duration};`),t}get classes(){const t=this.loop?"infinite":"";return`animated ${this.name} ${t}`}})||_class)||_class)||_class)||_class)||_class)||_class;exports.default=Animate;
+
+},{"@scoutgg/widgets":4}],128:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_dec3,_class,_widgets=require("@scoutgg/widgets");require("../markdown/markdown"),require("../github-menu/github-menu");let FromGithub=(_dec=(0,_widgets.Component)("demo"))(_class=(_dec2=(0,_widgets.Attribute)("slug",String))(_class=(_dec3=(0,_widgets.Template)(function(e){e`
 <style>
   :host {
@@ -416,7 +432,7 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
 <demo-markdown>${{html:this.markdown}}</demo-markdown>
   `}))(_class=class FromGithub extends HTMLElement{async connectedCallback(){const e=await fetch(`https://cdn.rawgit.com/scoutgg/widgets-docs/master/${this.slug}.md`);this.markdown=await e.text(),this.render()}})||_class)||_class)||_class;exports.default=FromGithub;
 
-},{"../github-menu/github-menu":128,"../markdown/markdown":131,"@scoutgg/widgets":4}],128:[function(require,module,exports){
+},{"../github-menu/github-menu":129,"../markdown/markdown":132,"@scoutgg/widgets":4}],129:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_class,_widgets=require("@scoutgg/widgets"),_capitalize=_interopRequireDefault(require("lodash/capitalize")),_lowerCase=_interopRequireDefault(require("lodash/lowerCase")),_config=_interopRequireDefault(require("../../config"));function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}let GithubMenu=(_dec=(0,_widgets.Component)("demo"))(_class=(_dec2=(0,_widgets.Template)(function(e){e`
     <style>
       :host {
@@ -457,8 +473,8 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
     </ul>
   `}))(_class=class GithubMenu extends HTMLElement{async connectedCallback(){let e=await fetch("https://api.github.com/repos/scoutgg/widgets-docs/git/trees/master");e=await e.json(),this.pages=e.tree.map(e=>e.path).filter(e=>e.includes(".md")&&"README.md"!==e).map(e=>e.slice(0,e.indexOf(".md"))),this.render()}removeLeadingNumber(e){return isNaN(e[0])||(e=e.slice(e.indexOf("-"),e.length)),e}})||_class)||_class;exports.default=GithubMenu;
 
-},{"../../config":134,"@scoutgg/widgets":4,"lodash/capitalize":50,"lodash/lowerCase":55}],129:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_dec3,_class,_widgets=require("@scoutgg/widgets");require("../icon/icon");let Hello=(_dec=(0,_widgets.Component)("demo"))(_class=(_dec2=(0,_widgets.Attribute)("name",String,{default:"World"}))(_class=(_dec3=(0,_widgets.Template)(function(e){e`
+},{"../../config":135,"@scoutgg/widgets":4,"lodash/capitalize":50,"lodash/lowerCase":55}],130:[function(require,module,exports){
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_dec3,_class,_widgets=require("@scoutgg/widgets");require("../icon/icon"),require("../animate/animate");let Hello=(_dec=(0,_widgets.Component)("demo"))(_class=(_dec2=(0,_widgets.Attribute)("name",String,{default:"World"}))(_class=(_dec3=(0,_widgets.Template)(function(e){e`
     <style>
       section {
         display: flex;
@@ -475,13 +491,12 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
         color: var(--primary-color-text);
       }
       .usp {
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: flex-start;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 1.5em;
         min-height: 50vh;
       }
       .box {
-        width: 15%;
         min-width: 125px;
       }
       .box h2 {
@@ -534,45 +549,51 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
     </style>
     <section class="splash">
       <h2>Introducing</h2>
-      <h1>Widgets</h1>
+      <demo-animate name="fadeIn" delay="300ms" duration="8s">
+        <h1>Widgets</h1>
+      </demo-animate>
       <h5>A small front-end library by Scout Gaming Group</h5>
       <a class="btn" href="https://www.github.com/scoutgg/widgets">
         Fork on Github!<fa-icon category="fab" name="github" />
       </a>
     </section>
     <section class="usp">
-      <div class="box">
-        <fa-icon name="project-diagram" />
-        <h2>Components</h2>
-        <p>
-          Widgets is a library connecting templating language with syntactical
-          sugar for using Web Components.
-        </p>
-      </div>
-
-      <div class="box">
-        <fa-icon name="server" />
-        <h2>Production ready</h2>
-        <p>
-          Widgets is a production ready library used by Scout Gaming Group
-          and our clients. Easily create components libraries to suite your
-          personal og business needs.
-        </p>
-      </div>
-
-      <div class="box">
-        <fa-icon name="code" />
-        <h2>Less configuration!</h2>
-        <p>
-          With widgets you get simple boiler plates and tools to save time
-          configuring complex build tools and start focusing on your code
-          and getting things done again.
-        </p>
-      </div>
+      <demo-animate name="zoomIn" delay="400ms">
+        <div class="box">
+          <fa-icon name="project-diagram" />
+          <h2>Components</h2>
+          <p>
+            Widgets is a library connecting templating language with syntactical
+            sugar for using Web Components.
+          </p>
+        </div>
+      </demo-animate>
+      <demo-animate name="zoomIn" delay="700ms">
+        <div class="box">
+          <fa-icon name="server" />
+          <h2>Production ready</h2>
+          <p>
+            Widgets is a production ready library used by Scout Gaming Group
+            and our clients. Easily create components libraries to suite your
+            personal og business needs.
+          </p>
+        </div>
+      </demo-animate>
+      <demo-animate name="zoomIn" delay="1000ms">
+        <div class="box">
+          <fa-icon name="code" />
+          <h2>Less configuration!</h2>
+          <p>
+            With widgets you get simple boiler plates and tools to save time
+            configuring complex build tools and start focusing on your code
+            and getting things done again.
+          </p>
+        </div>
+      </demo-animate>
     </section>
   `}))(_class=class Hello extends HTMLElement{})||_class)||_class)||_class;exports.default=Hello;
 
-},{"../icon/icon":130,"@scoutgg/widgets":4}],130:[function(require,module,exports){
+},{"../animate/animate":127,"../icon/icon":131,"@scoutgg/widgets":4}],131:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_dec3,_dec4,_class,_widgets=require("@scoutgg/widgets");let Icon=(_dec=(0,_widgets.Component)("fa"))(_class=(_dec2=(0,_widgets.Attribute)("name",String))(_class=(_dec3=(0,_widgets.Attribute)("category",String))(_class=(_dec4=(0,_widgets.Template)(function(e){e`
     <style>
       @import 'https://use.fontawesome.com/releases/v5.3.1/css/all.css';
@@ -580,7 +601,7 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
     <span class=${this.icon}></span>
   `}))(_class=class Icon extends HTMLElement{get icon(){return`${this.category||"fas"} fa-${this.name}`}})||_class)||_class)||_class)||_class;exports.default=Icon;
 
-},{"@scoutgg/widgets":4}],131:[function(require,module,exports){
+},{"@scoutgg/widgets":4}],132:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_dec3,_class,_widgets=require("@scoutgg/widgets"),_markdownIt=_interopRequireDefault(require("markdown-it")),_highlightjs=_interopRequireDefault(require("highlightjs")),_hyperhtml=require("hyperhtml");function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}let Markdown=(_dec=(0,_widgets.Component)("demo"))(_class=(_dec2=(0,_widgets.Attribute)("md",String))(_class=(_dec3=(0,_widgets.Template)(function(e){e`
     <style>
       @import 'https://rawgit.com/sindresorhus/github-markdown-css/gh-pages/github-markdown.css';
@@ -594,7 +615,7 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
     ${{html:this.parsedMarkdown}}
   `}))(_class=class Markdown extends HTMLElement{connectedCallback(){this.markdownIt=new _markdownIt.default,this.observer=new MutationObserver(e=>{this.render(()=>{Array.from(this.shadowRoot.querySelectorAll("pre code")).forEach(e=>{_highlightjs.default.highlightBlock(e)})})}).observe(this,{childList:!0,characterData:!0})}get parsedMarkdown(){return this.markdownIt.render(this.textContent)}})||_class)||_class)||_class;exports.default=Markdown;
 
-},{"@scoutgg/widgets":4,"highlightjs":9,"hyperhtml":14,"markdown-it":59}],132:[function(require,module,exports){
+},{"@scoutgg/widgets":4,"highlightjs":9,"hyperhtml":14,"markdown-it":59}],133:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_dec3,_class,_widgets=require("@scoutgg/widgets"),_hyperhtml=require("hyperhtml"),_page=_interopRequireDefault(require("page")),_config=_interopRequireDefault(require("../../config"));function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}let Navigation=(_dec=(0,_widgets.Component)("demo"))(_class=(_dec2=(0,_widgets.Attribute)("currentRoute",String))(_class=(_dec3=(0,_widgets.Template)(function(e){e`
     <style>
       nav {
@@ -630,19 +651,19 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
     </nav>
   `}))(_class=class Navigation extends HTMLElement{connectedCallback(){this.routes=[["Hello!",`${_config.default.basePath||""}/`],["Documentation",`${_config.default.basePath||""}/docs/0-introduction`],["About",`${_config.default.basePath||""}/about`]],this.render()}route(e){(0,_page.default)(e)}isCurrent(e){return e[1]===this.currentRoute?"active menu-link":"menu-link"}})||_class)||_class)||_class;exports.default=Navigation;
 
-},{"../../config":134,"@scoutgg/widgets":4,"hyperhtml":14,"page":116}],133:[function(require,module,exports){
+},{"../../config":135,"@scoutgg/widgets":4,"hyperhtml":14,"page":116}],134:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_class,_widgets=require("@scoutgg/widgets"),_routes=_interopRequireDefault(require("../../config/routes.js")),_page=_interopRequireDefault(require("page")),_config=_interopRequireDefault(require("../../config"));function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}let PageRouter=(_dec=(0,_widgets.Component)("demo"))(_class=(_dec2=(0,_widgets.Template)(function(e){e`${this.route}`}))(_class=class PageRouter extends HTMLElement{connectedCallback(){_config.default.basePath&&_page.default.base(_config.default.basePath),this.route="",Object.keys(_routes.default).forEach(e=>{(0,_page.default)(e,(t,s)=>{const a="function"==typeof _routes.default[e]?new _routes.default[e]:new _routes.default[e].component;_routes.default[e].class&&a.classList.add(_routes.default[e].class),this.setAttribute("class",_routes.default[e].parentClass||""),Object.keys(t.params).forEach(e=>{isNaN(e)&&a.setAttribute(e,t.params[e])}),this.route=a,this.render(()=>{this.emit("routeChanged",{context:t})})})}),(0,_page.default)();const e=window.location.hash.slice(1);e&&(0,_page.default)(e)}})||_class)||_class;exports.default=PageRouter;
 
-},{"../../config":134,"../../config/routes.js":135,"@scoutgg/widgets":4,"page":116}],134:[function(require,module,exports){
+},{"../../config":135,"../../config/routes.js":136,"@scoutgg/widgets":4,"page":116}],135:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;const script=document.querySelector(".widgets-script"),config={};Object.keys(script.dataset).forEach(e=>{config[e]=script.dataset[e]});var _default=config;exports.default=_default;
 
-},{}],135:[function(require,module,exports){
+},{}],136:[function(require,module,exports){
 "use strict";var _hello=_interopRequireDefault(require("../components/hello/hello")),_about=_interopRequireDefault(require("../components/about/about")),_fromGithub=_interopRequireDefault(require("../components/from-github/from-github"));function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}module.exports={"/":{component:_hello.default,parentClass:"full-size"},"/home/:name?":{component:_hello.default,parentClass:"full-size"},"/about":_about.default,"/docs/:slug":{component:_fromGithub.default,parentClass:"full-size"}};
 
-},{"../components/about/about":126,"../components/from-github/from-github":127,"../components/hello/hello":129}],136:[function(require,module,exports){
+},{"../components/about/about":126,"../components/from-github/from-github":128,"../components/hello/hello":130}],137:[function(require,module,exports){
 "use strict";var _widgets=require("@scoutgg/widgets"),_hyper=require("@scoutgg/widgets/cjs/renderers/hyper"),_utils=require("../utils"),_hyperhtml=_interopRequireDefault(require("hyperhtml")),_routes=_interopRequireDefault(require("./config/routes")),_page=_interopRequireDefault(require("page"));function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}require("./components/icon/icon"),require("./components/hello/hello"),require("./components/about/about"),require("./components/navigation/navigation"),require("./components/page-router/page-router"),require("./components/from-github/from-github"),require("./app"),(0,_widgets.bootstrap)([_utils.emit,(0,_hyper.hyper)(_hyperhtml.default)]);
 
-},{"../utils":137,"./app":125,"./components/about/about":126,"./components/from-github/from-github":127,"./components/hello/hello":129,"./components/icon/icon":130,"./components/navigation/navigation":132,"./components/page-router/page-router":133,"./config/routes":135,"@scoutgg/widgets":4,"@scoutgg/widgets/cjs/renderers/hyper":5,"hyperhtml":14,"page":116}],137:[function(require,module,exports){
+},{"../utils":138,"./app":125,"./components/about/about":126,"./components/from-github/from-github":128,"./components/hello/hello":130,"./components/icon/icon":131,"./components/navigation/navigation":133,"./components/page-router/page-router":134,"./config/routes":136,"@scoutgg/widgets":4,"@scoutgg/widgets/cjs/renderers/hyper":5,"hyperhtml":14,"page":116}],138:[function(require,module,exports){
 "use strict";function emit(e){Object.assign(e.prototype,{emit(e,t){let s=new CustomEvent(e);s=Object.assign(s,t),this.dispatchEvent(s)}})}Object.defineProperty(exports,"__esModule",{value:!0}),exports.emit=emit;
 
-},{}]},{},[136]);
+},{}]},{},[137]);
