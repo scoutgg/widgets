@@ -93,38 +93,32 @@ import '../animate/animate'
       </a>
     </section>
     <section class="usp">
-      <demo-animate name="zoomIn" delay="400ms">
-        <div class="box">
-          <fa-icon name="project-diagram" />
-          <h2>Components</h2>
-          <p>
-            Widgets is a library connecting templating language with syntactical
-            sugar for using Web Components.
-          </p>
-        </div>
-      </demo-animate>
-      <demo-animate name="zoomIn" delay="700ms">
-        <div class="box">
-          <fa-icon name="server" />
-          <h2>Production ready</h2>
-          <p>
-            Widgets is a production ready library used by Scout Gaming Group
-            and our clients. Easily create components libraries to suite your
-            personal og business needs.
-          </p>
-        </div>
-      </demo-animate>
-      <demo-animate name="zoomIn" delay="1000ms">
-        <div class="box">
-          <fa-icon name="code" />
-          <h2>Less configuration!</h2>
-          <p>
-            With widgets you get simple boiler plates and tools to save time
-            configuring complex build tools and start focusing on your code
-            and getting things done again.
-          </p>
-        </div>
-      </demo-animate>
+      <div class="box">
+        <fa-icon name="project-diagram" />
+        <h2>Components</h2>
+        <p>
+          Widgets is a library connecting templating language with syntactical
+          sugar for using Web Components.
+        </p>
+      </div>
+      <div class="box">
+        <fa-icon name="server" />
+        <h2>Production ready</h2>
+        <p>
+          Widgets is a production ready library used by Scout Gaming Group
+          and our clients. Easily create components libraries to suite your
+          personal og business needs.
+        </p>
+      </div>
+      <div class="box">
+        <fa-icon name="code" />
+        <h2>Less configuration!</h2>
+        <p>
+          With widgets you get simple boiler plates and tools to save time
+          configuring complex build tools and start focusing on your code
+          and getting things done again.
+        </p>
+      </div>
     </section>
   `
 })
