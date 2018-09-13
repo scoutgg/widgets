@@ -2,7 +2,7 @@ import { Component, Template, Attribute } from '@scoutgg/widgets'
 import '../icon/icon'
 import '../animate/animate'
 
-@Component('demo')
+@Component('docs')
 @Attribute('name', String, { default: 'World' })
 @Template(function (html) {
   html `
@@ -84,9 +84,9 @@ import '../animate/animate'
     </style>
     <section class="splash">
       <h2>Introducing</h2>
-      <demo-animate name="fadeIn" delay="300ms" duration="8s">
+      <docs-animate name="fadeIn" delay="300ms" duration="8s">
         <h1>Widgets</h1>
-      </demo-animate>
+      </docs-animate>
       <h5>A small front-end library by Scout Gaming Group</h5>
       <a class="btn" href="https://www.github.com/scoutgg/widgets">
         Fork on Github!<fa-icon category="fab" name="github" />

@@ -3,7 +3,7 @@ import MarkdownIt from 'markdown-it'
 import highlightjs from 'highlightjs'
 import { wire } from 'hyperhtml'
 
-@Component('demo')
+@Component('docs')
 @Attribute('md', String)
 @Template(function (html) {
   html `

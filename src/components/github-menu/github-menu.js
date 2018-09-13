@@ -3,7 +3,7 @@ import capitalize from 'lodash/capitalize'
 import lowerCase from 'lodash/lowerCase'
 import config from '../../config'
 
-@Component('demo')
+@Component('docs')
 @Template(function (html) {
   html `
     <style>

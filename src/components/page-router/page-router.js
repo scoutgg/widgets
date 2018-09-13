@@ -3,7 +3,7 @@ import routes from '../../config/routes.js'
 import page from 'page'
 import config from '../../config'
 
-@Component('demo')
+@Component('docs')
 @Template(function (html) { html `${this.route}` })
 export default class PageRouter extends HTMLElement {
   connectedCallback() {

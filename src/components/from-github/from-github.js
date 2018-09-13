@@ -2,7 +2,7 @@ import { Component, Template, Attribute } from '@scoutgg/widgets'
 import '../markdown/markdown'
 import '../github-menu/github-menu'
 
-@Component('demo')
+@Component('docs')
 @Attribute('slug', String)
 @Template(function (html) {
   html `
@@ -10,18 +10,18 @@ import '../github-menu/github-menu'
   :host {
     display: flex;
   }
-  demo-github-menu {
+  docs-github-menu {
     min-width: 340px;
     margin-right: 1em;
   }
-  demo-markdown {
+  docs-markdown {
     width: 100%;
     max-width: 1000px;
     flex: 1;
   }
 </style>
-<demo-github-menu></demo-github-menu>
-<demo-markdown>${{html: this.markdown}}</demo-markdown>
+<docs-github-menu></docs-github-menu>
+<docs-markdown>${{html: this.markdown}}</docs-markdown>
   `
 })
 export default class FromGithub extends HTMLElement {

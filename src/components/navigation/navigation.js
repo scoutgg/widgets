@@ -3,7 +3,7 @@ import { wire } from 'hyperhtml'
 import page from 'page'
 import config from '../../config'
 
-@Component('demo')
+@Component('docs')
 @Attribute('currentRoute', String)
 @Template(function (html) {
   html `

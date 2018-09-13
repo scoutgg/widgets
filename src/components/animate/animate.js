@@ -1,6 +1,6 @@
 import { Component, Template, Attribute } from '@scoutgg/widgets'
 
-@Component('demo')
+@Component('docs')
 @Attribute('name', String, { default: 'zoomIn' })
 @Attribute('delay', String, { default: '0s' })
 @Attribute('duration', String)

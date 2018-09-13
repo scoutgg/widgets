@@ -1,6 +1,6 @@
 import { Component, Template } from '@scoutgg/widgets'
 
-@Component('demo')
+@Component('docs')
 @Template(function (html) {
   html `
     <h1>☕Fresh new component «about»</h1>
