@@ -376,28 +376,28 @@ module.exports=/[ \xA0\u1680\u2000-\u200A\u202F\u205F\u3000]/;
 module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/;
 
 },{}],125:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_class,_widgets=require("@scoutgg/widgets");let App=(_dec=(0,_widgets.Component)("demo"))(_class=(_dec2=(0,_widgets.Template)(function(e){e`
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_class,_widgets=require("@scoutgg/widgets");let App=(_dec=(0,_widgets.Component)("docs"))(_class=(_dec2=(0,_widgets.Template)(function(e){e`
     <style>
-      demo-page-router {
+      docs-page-router {
         max-width: 1024px;
         display: block;
         margin: 0 auto;
       }
-      demo-page-router.full-size {
+      docs-page-router.full-size {
         max-width: none !important;
       }
     </style>
-    <demo-navigation current-route=${this.route} />
-    <demo-page-router onrouteChanged=${e=>this.routeChanged(e)} />
+    <docs-navigation current-route=${this.route} />
+    <docs-page-router onrouteChanged=${e=>this.routeChanged(e)} />
   `}))(_class=class App extends HTMLElement{routeChanged({context:e}){this.route=e.pathname,this.render()}})||_class)||_class;exports.default=App;
 
 },{"@scoutgg/widgets":4}],126:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_class,_widgets=require("@scoutgg/widgets");let About=(_dec=(0,_widgets.Component)("demo"))(_class=(_dec2=(0,_widgets.Template)(function(e){e`
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_class,_widgets=require("@scoutgg/widgets");let About=(_dec=(0,_widgets.Component)("docs"))(_class=(_dec2=(0,_widgets.Template)(function(e){e`
     <h1>☕Fresh new component «about»</h1>
   `}))(_class=class About extends HTMLElement{})||_class)||_class;exports.default=About;
 
 },{"@scoutgg/widgets":4}],127:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_dec3,_dec4,_dec5,_dec6,_class,_widgets=require("@scoutgg/widgets");let Animate=(_dec=(0,_widgets.Component)("demo"))(_class=(_dec2=(0,_widgets.Attribute)("name",String,{default:"zoomIn"}))(_class=(_dec3=(0,_widgets.Attribute)("delay",String,{default:"0s"}))(_class=(_dec4=(0,_widgets.Attribute)("duration",String))(_class=(_dec5=(0,_widgets.Attribute)("loop",Boolean,{default:!1}))(_class=(_dec6=(0,_widgets.Template)(function(t){t`
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_dec3,_dec4,_dec5,_dec6,_class,_widgets=require("@scoutgg/widgets");let Animate=(_dec=(0,_widgets.Component)("docs"))(_class=(_dec2=(0,_widgets.Attribute)("name",String,{default:"zoomIn"}))(_class=(_dec3=(0,_widgets.Attribute)("delay",String,{default:"0s"}))(_class=(_dec4=(0,_widgets.Attribute)("duration",String))(_class=(_dec5=(0,_widgets.Attribute)("loop",Boolean,{default:!1}))(_class=(_dec6=(0,_widgets.Template)(function(t){t`
   <style>
     @import 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css';
     :host {
@@ -413,27 +413,27 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
   `}))(_class=class Animate extends HTMLElement{get delayStyle(){let t=`animation-delay:${this.delay};`;return this.duration&&(t+=`animation-duration:${this.duration};`),t}get classes(){const t=this.loop?"infinite":"";return`animated ${this.name} ${t}`}})||_class)||_class)||_class)||_class)||_class)||_class;exports.default=Animate;
 
 },{"@scoutgg/widgets":4}],128:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_dec3,_class,_widgets=require("@scoutgg/widgets");require("../markdown/markdown"),require("../github-menu/github-menu");let FromGithub=(_dec=(0,_widgets.Component)("demo"))(_class=(_dec2=(0,_widgets.Attribute)("slug",String))(_class=(_dec3=(0,_widgets.Template)(function(e){e`
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_dec3,_class,_widgets=require("@scoutgg/widgets");require("../markdown/markdown"),require("../github-menu/github-menu");let FromGithub=(_dec=(0,_widgets.Component)("docs"))(_class=(_dec2=(0,_widgets.Attribute)("slug",String))(_class=(_dec3=(0,_widgets.Template)(function(t){t`
 <style>
   :host {
     display: flex;
   }
-  demo-github-menu {
+  docs-github-menu {
     min-width: 340px;
     margin-right: 1em;
   }
-  demo-markdown {
+  docs-markdown {
     width: 100%;
     max-width: 1000px;
     flex: 1;
   }
 </style>
-<demo-github-menu></demo-github-menu>
-<demo-markdown>${{html:this.markdown}}</demo-markdown>
-  `}))(_class=class FromGithub extends HTMLElement{async connectedCallback(){const e=await fetch(`https://cdn.rawgit.com/scoutgg/widgets-docs/master/${this.slug}.md`);this.markdown=await e.text(),this.render()}})||_class)||_class)||_class;exports.default=FromGithub;
+<docs-github-menu></docs-github-menu>
+<docs-markdown>${{html:this.markdown}}</docs-markdown>
+  `}))(_class=class FromGithub extends HTMLElement{async connectedCallback(){const t=await fetch(`https://cdn.rawgit.com/scoutgg/widgets-docs/master/${this.slug}.md`);this.markdown=await t.text(),this.render()}})||_class)||_class)||_class;exports.default=FromGithub;
 
 },{"../github-menu/github-menu":129,"../markdown/markdown":132,"@scoutgg/widgets":4}],129:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_class,_widgets=require("@scoutgg/widgets"),_capitalize=_interopRequireDefault(require("lodash/capitalize")),_lowerCase=_interopRequireDefault(require("lodash/lowerCase")),_config=_interopRequireDefault(require("../../config"));function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}let GithubMenu=(_dec=(0,_widgets.Component)("demo"))(_class=(_dec2=(0,_widgets.Template)(function(e){e`
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_class,_widgets=require("@scoutgg/widgets"),_capitalize=_interopRequireDefault(require("lodash/capitalize")),_lowerCase=_interopRequireDefault(require("lodash/lowerCase")),_config=_interopRequireDefault(require("../../config"));function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}let GithubMenu=(_dec=(0,_widgets.Component)("docs"))(_class=(_dec2=(0,_widgets.Template)(function(e){e`
     <style>
       :host {
         display: flex;
@@ -474,7 +474,7 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
   `}))(_class=class GithubMenu extends HTMLElement{async connectedCallback(){let e=await fetch("https://api.github.com/repos/scoutgg/widgets-docs/git/trees/master");e=await e.json(),this.pages=e.tree.map(e=>e.path).filter(e=>e.includes(".md")&&"README.md"!==e).map(e=>e.slice(0,e.indexOf(".md"))),this.render()}removeLeadingNumber(e){return isNaN(e[0])||(e=e.slice(e.indexOf("-"),e.length)),e}})||_class)||_class;exports.default=GithubMenu;
 
 },{"../../config":135,"@scoutgg/widgets":4,"lodash/capitalize":50,"lodash/lowerCase":55}],130:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_dec3,_class,_widgets=require("@scoutgg/widgets");require("../icon/icon"),require("../animate/animate");let Hello=(_dec=(0,_widgets.Component)("demo"))(_class=(_dec2=(0,_widgets.Attribute)("name",String,{default:"World"}))(_class=(_dec3=(0,_widgets.Template)(function(e){e`
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_dec3,_class,_widgets=require("@scoutgg/widgets");require("../icon/icon"),require("../animate/animate");let Hello=(_dec=(0,_widgets.Component)("docs"))(_class=(_dec2=(0,_widgets.Attribute)("name",String,{default:"World"}))(_class=(_dec3=(0,_widgets.Template)(function(e){e`
     <style>
       section {
         display: flex;
@@ -553,9 +553,9 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
     </style>
     <section class="splash">
       <h2>Introducing</h2>
-      <demo-animate name="fadeIn" delay="300ms" duration="8s">
+      <docs-animate name="fadeIn" delay="300ms" duration="8s">
         <h1>Widgets</h1>
-      </demo-animate>
+      </docs-animate>
       <h5>A small front-end library by Scout Gaming Group</h5>
       <a class="btn" href="https://www.github.com/scoutgg/widgets">
         Fork on Github!<fa-icon category="fab" name="github" />
@@ -600,7 +600,7 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
   `}))(_class=class Icon extends HTMLElement{get icon(){return`${this.category||"fas"} fa-${this.name}`}})||_class)||_class)||_class)||_class;exports.default=Icon;
 
 },{"@scoutgg/widgets":4}],132:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_dec3,_class,_widgets=require("@scoutgg/widgets"),_markdownIt=_interopRequireDefault(require("markdown-it")),_highlightjs=_interopRequireDefault(require("highlightjs")),_hyperhtml=require("hyperhtml");function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}let Markdown=(_dec=(0,_widgets.Component)("demo"))(_class=(_dec2=(0,_widgets.Attribute)("md",String))(_class=(_dec3=(0,_widgets.Template)(function(e){e`
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_dec3,_class,_widgets=require("@scoutgg/widgets"),_markdownIt=_interopRequireDefault(require("markdown-it")),_highlightjs=_interopRequireDefault(require("highlightjs")),_hyperhtml=require("hyperhtml");function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}let Markdown=(_dec=(0,_widgets.Component)("docs"))(_class=(_dec2=(0,_widgets.Attribute)("md",String))(_class=(_dec3=(0,_widgets.Template)(function(e){e`
     <style>
       @import 'https://rawgit.com/sindresorhus/github-markdown-css/gh-pages/github-markdown.css';
       @import 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css';
@@ -615,7 +615,7 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
   `}))(_class=class Markdown extends HTMLElement{connectedCallback(){this.markdownIt=new _markdownIt.default,this.observer=new MutationObserver(e=>{this.render(()=>{Array.from(this.shadowRoot.querySelectorAll("pre code")).forEach(e=>{_highlightjs.default.highlightBlock(e)})})}).observe(this,{childList:!0,characterData:!0})}get parsedMarkdown(){return this.markdownIt.render(this.textContent)}})||_class)||_class)||_class;exports.default=Markdown;
 
 },{"@scoutgg/widgets":4,"highlightjs":9,"hyperhtml":14,"markdown-it":59}],133:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_dec3,_class,_widgets=require("@scoutgg/widgets"),_hyperhtml=require("hyperhtml"),_page=_interopRequireDefault(require("page")),_config=_interopRequireDefault(require("../../config"));function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}let Navigation=(_dec=(0,_widgets.Component)("demo"))(_class=(_dec2=(0,_widgets.Attribute)("currentRoute",String))(_class=(_dec3=(0,_widgets.Template)(function(e){e`
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_dec3,_class,_widgets=require("@scoutgg/widgets"),_hyperhtml=require("hyperhtml"),_page=_interopRequireDefault(require("page")),_config=_interopRequireDefault(require("../../config"));function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}let Navigation=(_dec=(0,_widgets.Component)("docs"))(_class=(_dec2=(0,_widgets.Attribute)("currentRoute",String))(_class=(_dec3=(0,_widgets.Template)(function(e){e`
     <style>
       nav {
         display: flex;
@@ -651,7 +651,7 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
   `}))(_class=class Navigation extends HTMLElement{connectedCallback(){this.routes=[["Hello!",`${_config.default.basePath||""}/`],["Documentation",`${_config.default.basePath||""}/docs/0-introduction`],["About",`${_config.default.basePath||""}/about`]],this.render()}route(e){(0,_page.default)(e)}isCurrent(e){return e[1]===this.currentRoute?"active menu-link":"menu-link"}})||_class)||_class)||_class;exports.default=Navigation;
 
 },{"../../config":135,"@scoutgg/widgets":4,"hyperhtml":14,"page":116}],134:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_class,_widgets=require("@scoutgg/widgets"),_routes=_interopRequireDefault(require("../../config/routes.js")),_page=_interopRequireDefault(require("page")),_config=_interopRequireDefault(require("../../config"));function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}let PageRouter=(_dec=(0,_widgets.Component)("demo"))(_class=(_dec2=(0,_widgets.Template)(function(e){e`${this.route}`}))(_class=class PageRouter extends HTMLElement{connectedCallback(){_config.default.basePath&&_page.default.base(_config.default.basePath),this.route="",Object.keys(_routes.default).forEach(e=>{(0,_page.default)(e,(t,s)=>{const a="function"==typeof _routes.default[e]?new _routes.default[e]:new _routes.default[e].component;_routes.default[e].class&&a.classList.add(_routes.default[e].class),this.setAttribute("class",_routes.default[e].parentClass||""),Object.keys(t.params).forEach(e=>{isNaN(e)&&a.setAttribute(e,t.params[e])}),this.route=a,this.render(()=>{this.emit("routeChanged",{context:t})})})}),(0,_page.default)();const e=window.location.hash.slice(1);e&&(0,_page.default)(e)}})||_class)||_class;exports.default=PageRouter;
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _dec,_dec2,_class,_widgets=require("@scoutgg/widgets"),_routes=_interopRequireDefault(require("../../config/routes.js")),_page=_interopRequireDefault(require("page")),_config=_interopRequireDefault(require("../../config"));function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}let PageRouter=(_dec=(0,_widgets.Component)("docs"))(_class=(_dec2=(0,_widgets.Template)(function(e){e`${this.route}`}))(_class=class PageRouter extends HTMLElement{connectedCallback(){_config.default.basePath&&_page.default.base(_config.default.basePath),this.route="",Object.keys(_routes.default).forEach(e=>{(0,_page.default)(e,(t,s)=>{const a="function"==typeof _routes.default[e]?new _routes.default[e]:new _routes.default[e].component;_routes.default[e].class&&a.classList.add(_routes.default[e].class),this.setAttribute("class",_routes.default[e].parentClass||""),Object.keys(t.params).forEach(e=>{isNaN(e)&&a.setAttribute(e,t.params[e])}),this.route=a,this.render(()=>{this.emit("routeChanged",{context:t})})})}),(0,_page.default)();const e=window.location.hash.slice(1);e&&(0,_page.default)(e)}})||_class)||_class;exports.default=PageRouter;
 
 },{"../../config":135,"../../config/routes.js":136,"@scoutgg/widgets":4,"page":116}],135:[function(require,module,exports){
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;const script=document.querySelector(".widgets-script"),config={};Object.keys(script.dataset).forEach(e=>{config[e]=script.dataset[e]});var _default=config;exports.default=_default;
