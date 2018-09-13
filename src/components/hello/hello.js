@@ -26,6 +26,10 @@ import '../animate/animate'
         grid-template-columns: 1fr 1fr 1fr;
         grid-column-gap: 1.5em;
         min-height: 50vh;
+        align-items: flex-start;
+        justify-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
       }
       .box {
         min-width: 125px;
