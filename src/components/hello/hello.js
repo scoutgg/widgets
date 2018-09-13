@@ -1,5 +1,6 @@
 import { Component, Template, Attribute } from '@scoutgg/widgets'
 import '../icon/icon'
+import '../animate/animate'
 
 @Component('demo')
 @Attribute('name', String, { default: 'World' })
@@ -21,13 +22,12 @@ import '../icon/icon'
         color: var(--primary-color-text);
       }
       .usp {
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: flex-start;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 1.5em;
         min-height: 50vh;
       }
       .box {
-        width: 15%;
         min-width: 125px;
       }
       .box h2 {
@@ -80,41 +80,47 @@ import '../icon/icon'
     </style>
     <section class="splash">
       <h2>Introducing</h2>
-      <h1>Widgets</h1>
+      <demo-animate name="fadeIn" delay="300ms" duration="8s">
+        <h1>Widgets</h1>
+      </demo-animate>
       <h5>A small front-end library by Scout Gaming Group</h5>
       <a class="btn" href="https://www.github.com/scoutgg/widgets">
         Fork on Github!<fa-icon category="fab" name="github" />
       </a>
     </section>
     <section class="usp">
-      <div class="box">
-        <fa-icon name="project-diagram" />
-        <h2>Components</h2>
-        <p>
-          Widgets is a library connecting templating language with syntactical
-          sugar for using Web Components.
-        </p>
-      </div>
-
-      <div class="box">
-        <fa-icon name="server" />
-        <h2>Production ready</h2>
-        <p>
-          Widgets is a production ready library used by Scout Gaming Group
-          and our clients. Easily create components libraries to suite your
-          personal og business needs.
-        </p>
-      </div>
-
-      <div class="box">
-        <fa-icon name="code" />
-        <h2>Less configuration!</h2>
-        <p>
-          With widgets you get simple boiler plates and tools to save time
-          configuring complex build tools and start focusing on your code
-          and getting things done again.
-        </p>
-      </div>
+      <demo-animate name="zoomIn" delay="400ms">
+        <div class="box">
+          <fa-icon name="project-diagram" />
+          <h2>Components</h2>
+          <p>
+            Widgets is a library connecting templating language with syntactical
+            sugar for using Web Components.
+          </p>
+        </div>
+      </demo-animate>
+      <demo-animate name="zoomIn" delay="700ms">
+        <div class="box">
+          <fa-icon name="server" />
+          <h2>Production ready</h2>
+          <p>
+            Widgets is a production ready library used by Scout Gaming Group
+            and our clients. Easily create components libraries to suite your
+            personal og business needs.
+          </p>
+        </div>
+      </demo-animate>
+      <demo-animate name="zoomIn" delay="1000ms">
+        <div class="box">
+          <fa-icon name="code" />
+          <h2>Less configuration!</h2>
+          <p>
+            With widgets you get simple boiler plates and tools to save time
+            configuring complex build tools and start focusing on your code
+            and getting things done again.
+          </p>
+        </div>
+      </demo-animate>
     </section>
   `
 })
