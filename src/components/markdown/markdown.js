@@ -14,6 +14,7 @@ import { wire } from 'hyperhtml'
         border-radius: 0;
         height: auto !important;
         margin: 0 auto;
+        max-height: 400px;
       }
     </style>
     ${ { html: this.parsedMarkdown } }
