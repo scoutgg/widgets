@@ -106,8 +106,8 @@ import '../animate/animate'
         <h2>Production ready</h2>
         <p>
           Widgets is a production ready library used by Scout Gaming Group
-          and our clients. Easily create components libraries to suite your
-          personal og business needs.
+          and our clients. Easily create component libraries to suite your
+          personal or business needs.
         </p>
       </div>
       <div class="box">
