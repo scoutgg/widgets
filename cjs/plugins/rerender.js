@@ -22,7 +22,7 @@ function rerender() {
 
     for (const element of elements) {
       if (element.render && ++pending) {
-        return element.render(decrement);
+        element.render(decrement);
       }
     }
   });
