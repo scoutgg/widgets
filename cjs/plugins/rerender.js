@@ -36,7 +36,7 @@ function rerenderPlugin(config) {
         return next();
       },
 
-      disconnectedCallback() {
+      disconnectedCallback(args, next) {
         elements.delete(this);
         return next();
       }

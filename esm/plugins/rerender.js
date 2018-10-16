@@ -25,7 +25,7 @@ export default function rerenderPlugin(config) {
         elements.add(this)
         return next()
       },
-      disconnectedCallback() {
+      disconnectedCallback(args, next) {
         elements.delete(this)
         return next()
       }
