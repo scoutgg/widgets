@@ -7,7 +7,6 @@ export default function Input(property) {
         return this[prop]
       },
       set(value) {
-        console.log('setting', value)
         if(this[prop] !== value) this.render(this[prop] = value)
       },
     })
