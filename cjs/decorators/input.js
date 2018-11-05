@@ -16,7 +16,6 @@ function Input(property) {
       },
 
       set(value) {
-        console.log('setting', value);
         if (this[prop] !== value) this.render(this[prop] = value);
       }
 
