@@ -3,9 +3,9 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = input;
+exports.default = Input;
 
-function input(property) {
+function Input(property) {
   const prop = Symbol.for(property);
   return function define(Class) {
     Object.defineProperty(Class.prototype, property, {

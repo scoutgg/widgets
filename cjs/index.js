@@ -7,7 +7,8 @@ var _exportNames = {
   Component: true,
   bootstrap: true,
   Template: true,
-  Attribute: true
+  Attribute: true,
+  Input: true
 };
 Object.defineProperty(exports, "Component", {
   enumerable: true,
@@ -33,12 +34,20 @@ Object.defineProperty(exports, "Attribute", {
     return _attribute.Attribute;
   }
 });
+Object.defineProperty(exports, "Input", {
+  enumerable: true,
+  get: function () {
+    return _input.Input;
+  }
+});
 
 var _component = require("./decorators/component.js");
 
 var _template = require("./decorators/template.js");
 
 var _attribute = require("./decorators/attribute.js");
+
+var _input = require("./decorators/input.js");
 
 var _utils = require("./utils.js");
 
