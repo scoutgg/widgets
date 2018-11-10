@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = Input;
+exports.Input = Input;
 
 function Input(property) {
   const prop = Symbol.for(property);

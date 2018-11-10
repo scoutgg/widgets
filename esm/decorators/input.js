@@ -1,4 +1,4 @@
-export default function Input(property) {
+export function Input(property) {
   const prop = Symbol.for(property)
   return function define(Class) {
     Object.defineProperty(Class.prototype, property, {
