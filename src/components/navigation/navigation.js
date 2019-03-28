@@ -14,7 +14,7 @@ import config from '../../config'
         padding: 0 1em;
         height: 80px;
         background-color: var(--primary-color-1, yellow);
-        max-width: 100vh;
+        max-width: 100vw;
         overflow: auto;
         -webkit-overflow-scrolling: touch;
       }

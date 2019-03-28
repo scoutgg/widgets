@@ -604,7 +604,7 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
         padding: 0 1em;
         height: 80px;
         background-color: var(--primary-color-1, yellow);
-        max-width: 100vh;
+        max-width: 100vw;
         overflow: auto;
         -webkit-overflow-scrolling: touch;
       }
