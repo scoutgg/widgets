@@ -21,7 +21,7 @@ import config from '../../config'
       a {
         color: #fff;
         margin-right: 1em;
-        text-decoration: underline;
+        text-decoration: none;
         text-decoration-color: transparent;
         border-bottom: 2px solid transparent;
       }
