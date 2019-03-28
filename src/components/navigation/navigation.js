@@ -11,7 +11,8 @@ import config from '../../config'
       nav {
         display: flex;
         align-items: center;
-        padding: 1em;
+        padding: 0 1em;
+        height: 80px;
         background-color: var(--primary-color-1, yellow);
       }
       a {

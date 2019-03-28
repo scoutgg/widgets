@@ -486,7 +486,7 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
         background-image: url(https://s3-eu-west-1.amazonaws.com/jujus-staging/test/norsk.jpg);
         background-size: cover;
         background-position: center center;
-        height: 70vh;
+        height: calc(100vh - 80px);
         color: var(--primary-color-text);
       }
       .usp {
@@ -551,7 +551,6 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
       }
     </style>
     <section class="splash">
-      <h2>Introducing</h2>
       <docs-animate name="fadeIn" delay="300ms" duration="8s">
         <h1>Widgets</h1>
       </docs-animate>
@@ -591,7 +590,8 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
       nav {
         display: flex;
         align-items: center;
-        padding: 1em;
+        padding: 0 1em;
+        height: 80px;
         background-color: var(--primary-color-1, yellow);
       }
       a {

@@ -17,7 +17,7 @@ import '../animate/animate'
         background-image: url(https://s3-eu-west-1.amazonaws.com/jujus-staging/test/norsk.jpg);
         background-size: cover;
         background-position: center center;
-        height: 70vh;
+        height: calc(100vh - 80px);
         color: var(--primary-color-text);
       }
       .usp {
@@ -82,7 +82,6 @@ import '../animate/animate'
       }
     </style>
     <section class="splash">
-      <h2>Introducing</h2>
       <docs-animate name="fadeIn" delay="300ms" duration="8s">
         <h1>Widgets</h1>
       </docs-animate>
