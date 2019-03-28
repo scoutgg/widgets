@@ -19,6 +19,18 @@ import '../github-menu/github-menu'
     max-width: 1000px;
     flex: 1;
   }
+  @media only screen and (max-width: 600px) {
+    :host {
+      flex-direction: column;
+    }
+    docs.github-menu {
+      min-height: unset;
+      align-items: flex-start;
+      width: 100vw;
+      border-right: 0;
+      border-bottom: 1px solid #c3dde6;
+    }
+  }
 </style>
 <docs-github-menu></docs-github-menu>
 <docs-markdown>${{html: this.markdown}}</docs-markdown>
