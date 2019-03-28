@@ -23,7 +23,7 @@ import '../github-menu/github-menu'
     :host {
       flex-direction: column;
     }
-    docs.github-menu {
+    docs-github-menu {
       min-height: unset;
       align-items: flex-start;
       width: 100vw;
