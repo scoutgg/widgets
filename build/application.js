@@ -481,10 +481,9 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
         flex-direction: column;
         align-items: center;
         justify-content: center;
-
       }
       .splash {
-        background-image: url(public/milkyway.jpg);
+        background-image: url(https://s3-eu-west-1.amazonaws.com/jujus-staging/test/norsk.jpg);
         background-size: cover;
         background-position: center center;
         height: 70vh;
@@ -522,7 +521,6 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
       h1 {
         font-size: 8em;
         color: var(--primary-color-text, #fff);
-        color: var(--accent-color-1);
       }
       h5 {
         font-size: 1.5em;
@@ -530,7 +528,8 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
       .btn {
         padding: 1em;
         margin: 1em;
-        background-color: var(--accent-color-1);
+        background-color: var(--secondary-color-1);
+        color: var(--secondary-color-text);
         border-radius: 2em;
         font-weight: 500;
         font-size: 1.2em;
@@ -560,34 +559,6 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
       <a class="btn" href="https://www.github.com/scoutgg/widgets">
         Fork on Github!<fa-icon category="fab" name="github" />
       </a>
-    </section>
-    <section class="usp">
-      <div class="box">
-        <fa-icon name="project-diagram" />
-        <h2>Components</h2>
-        <p>
-          Widgets is a library connecting templating language with syntactical
-          sugar for using Web Components.
-        </p>
-      </div>
-      <div class="box">
-        <fa-icon name="server" />
-        <h2>Production ready</h2>
-        <p>
-          Widgets is a production ready library used by Scout Gaming Group
-          and our clients. Easily create components libraries to suite your
-          personal og business needs.
-        </p>
-      </div>
-      <div class="box">
-        <fa-icon name="code" />
-        <h2>Less configuration!</h2>
-        <p>
-          With widgets you get simple boiler plates and tools to save time
-          configuring complex build tools and start focusing on your code
-          and getting things done again.
-        </p>
-      </div>
     </section>
   `}))(_class=class Hello extends HTMLElement{})||_class)||_class)||_class;exports.default=Hello;
 
