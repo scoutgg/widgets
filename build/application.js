@@ -489,19 +489,7 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
         height: calc(100vh - 80px);
         color: var(--primary-color-text);
       }
-      .usp {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-column-gap: 1.5em;
-        min-height: 50vh;
-        align-items: flex-start;
-        justify-items: center;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-      .box {
-        min-width: 125px;
-      }
+
       .box h2 {
         white-space: nowrap;
         filter: none;
@@ -516,6 +504,7 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
         margin: 0;
         padding: 0;
         font-weight: 300;
+        text-align: center;
         filter: drop-shadow(1px 1px 1px rgba(0,0,0,.6));
       }
       h1 {
@@ -548,6 +537,11 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
         margin: 0 auto;
         height: 2.5em;
         width: 2.5em;
+      }
+      @media only screen and (max-width: 600px) {
+        h1 {
+          font-size: 5em;
+        }
       }
     </style>
     <section class="splash">
@@ -593,6 +587,9 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
         padding: 0 1em;
         height: 80px;
         background-color: var(--primary-color-1, yellow);
+        max-width: 100vh;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
       }
       a {
         color: #fff;
