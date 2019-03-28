@@ -26,7 +26,7 @@ import '../github-menu/github-menu'
     docs-github-menu {
       min-height: unset;
       align-items: flex-start;
-      width: 100vw;
+      width: 100%;
       border-right: 0;
       border-bottom: 1px solid #c3dde6;
     }
