@@ -30,7 +30,7 @@ export default class PageRouter extends HTMLElement {
 
       })
     })
-    page()
+    page({ hashbang: true })
     const pathname = window.location.hash.slice(1)
     if(pathname) page(pathname)
   }
