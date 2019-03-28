@@ -557,7 +557,7 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
       }
     </style>
     <section class="splash">
-      <docs-animate name="fadeIn" delay="300ms" duration="8s">
+      <docs-animate name="zoomIn" delay="300ms" duration="2s">
         <h1>Widgets</h1>
       </docs-animate>
       <h5>A small front-end library by Scout Gaming Group</h5>
@@ -611,7 +611,7 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
       a {
         color: #fff;
         margin-right: 1em;
-        text-decoration: underline;
+        text-decoration: none;
         text-decoration-color: transparent;
         border-bottom: 2px solid transparent;
       }
