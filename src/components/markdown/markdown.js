@@ -10,12 +10,16 @@ import { wire } from 'hyperhtml'
     <style>
       @import 'https://rawgit.com/sindresorhus/github-markdown-css/gh-pages/github-markdown.css';
       @import 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css';
+      :host {
+        padding: .5em;
+        box-sizing: border-box;
+      }
       img {
         border-radius: 0;
         height: auto !important;
         margin: 0 auto;
         max-height: 400px;
-        max-width: 100vw;
+        max-width: 100%;
       }
     </style>
     ${ { html: this.parsedMarkdown } }
