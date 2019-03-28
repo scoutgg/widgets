@@ -585,6 +585,7 @@ module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-
         height: auto !important;
         margin: 0 auto;
         max-height: 400px;
+        max-width: 100vw;
       }
     </style>
     ${{html:this.parsedMarkdown}}
