@@ -6,6 +6,7 @@
   "module": "esm/index.js",
   "jsnext:main": "esm/index.js",
   "sideEffects": false,
+  "type": "module",
   "scripts": {
     "start": "budo demo --open --live -- --transform-key widgets-demo",
     "demo-react": "budo demo/react --open --live",

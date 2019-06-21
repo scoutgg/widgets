@@ -3,6 +3,10 @@ import { queue } from './queue.js'
 
 export function vdom({ VNode, diff, patch }) {
   const shedule = queue(function render(node, cache) {
+    if(node.ssr) {
+      node.ssr(cache)
+    }
+
     const target = node.shadowRoot || node
     const previous = cache.get(node) || new VNode(target.tagName, null, [])
     const current = new VNode(target.tagName, null, node.template(node))
