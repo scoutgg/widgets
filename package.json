@@ -5,57 +5,43 @@
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "jsnext:main": "esm/index.js",
+  "exports": {
+    ".": {
+      "import": "./esm/index.js",
+      "require": "./cjs/index.js"
+    },
+    "./esm": "./esm/index.js",
+    "./vdom": {
+      "import": "./esm/renderers/vdom.js",
+      "require": "./cjs/renderers/vdom.js"
+    },
+    "./hyper": {
+      "import": "./esm/renderers/hyper.js",
+      "require": "./cjs/renderers/hyper.js"
+    },
+    "./react": {
+      "import": "./esm/renderers/react.js",
+      "require": "./cjs/renderers/react.js"
+    },
+    "./queue": {
+      "import": "./esm/renderers/queue.js",
+      "require": "./cjs/renderers/queue.js"
+    }
+  },
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "start": "budo demo --open --live -- --transform-key widgets-demo",
-    "demo-react": "budo demo/react --open --live",
-    "demo-react-pug": "budo demo/react-pug --open --live -- --transform-key widgets-demo-react",
+    "start": "npx local-web-server --static.index demo/index.html --open",
     "readme": "projectz compile",
-    "build": "npm run widgets | npm run bundles | npm run readme",
-    "widgets": "babel esm --out-dir cjs",
-    "bundles": "npm run bundle-hyper | npm run bundle-pug",
-    "bundle-hyper": "browserify bundles/hyper -p common-shakeify -p browser-pack-flat/plugin --standalone sggWidgets | uglifyjs > widgets.hyper.bundle.js",
-    "bundle-pug": "browserify bundles/pug -p common-shakeify --standalone sggWidgets | uglifyjs > widgets.vdom-pug.bundle.js"
+    "build": "npm run cjs | npm run readme",
+    "cjs": "ascjs esm cjs"
   },
   "keywords": [],
   "author": "Scout Gaming Group <oystein.olsen@scoutgaminggroup.com>",
   "license": "ISC",
-  "browserify": {
-    "widgets-demo-react": [
-      [
-        "fn-pug/lib/transform/browserify",
-        {
-          "runtime": "react"
-        }
-      ],
-      "babelify"
-    ],
-    "widgets-demo": [
-      "fn-pug/lib/transform/browserify",
-      "babelify"
-    ],
-    "transform": [
-      "babelify"
-    ]
-  },
   "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "@babel/preset-react": "^7.0.0",
-    "babelify": "^9.0.0",
-    "browser-pack-flat": "^3.0.8",
-    "browserify": "^16.1.0",
-    "budo": "^11.1.7",
-    "common-shakeify": "^0.4.6",
-    "fn-pug": "github:fireneslo/fn-pug",
-    "hyperhtml": "^2.5.13",
-    "projectz": "^1.4.0",
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2",
-    "uglify-es": "^3.3.9",
-    "virtual-dom": "^2.1.1"
+    "ascjs": "^5.0.1",
+    "projectz": "^1.4.0"
   },
   "maintainers": [],
   "contributors": [
@@ -68,5 +54,8 @@
   "bugs": {
     "url": "https://github.com/scoutgg/widgets/issues"
   },
-  "homepage": "https://github.com/scoutgg/widgets#readme"
+  "homepage": "https://github.com/scoutgg/widgets#readme",
+  "dependencies": {
+    "rollup": "^2.39.0"
+  }
 }

@@ -1,48 +1,10 @@
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.react = react;
+const renderer = (m => /* c8 ignore start */ m.__esModule ? m.default : m /* c8 ignore stop */)(require('./html.js'))
 
-var _utils = require("../utils.js");
+Object.defineProperty(exports, '__esModule', {value: true}).default = react
 
-var _queue = require("./queue.js");
-
-function react(ReactDOM) {
-  const shedule = (0, _queue.queue)(function render(node, cache) {
-    const target = node.shadowRoot || node;
-    const current = node.template(node);
-    ReactDOM.render(current, target);
-  });
-  return function define(Class) {
-    (0, _utils.plugin)(Class.prototype, {
-      attributeChangedCallback(args, next) {
-        this.render();
-        return next();
-      },
-
-      connectedCallback(args, next) {
-        this.render();
-        return next();
-      },
-
-      render([callback], next) {
-        if (!this.shadowRoot) {
-          this.attachShadow({
-            mode: 'open'
-          });
-        }
-
-        shedule(this, (...args) => {
-          if (typeof callback === 'function') {
-            callback(...args);
-          }
-
-          next();
-        });
-      }
-
-    });
-  };
+function react(ReactDOM, html = ReactDOM.createElement || ReactDOM.html) {
+  return renderer({ html, render: ReactDOM.render })
 }
+exports.react = react

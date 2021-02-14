@@ -1,24 +1,16 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Input = Input;
-
+'use strict';
 function Input(property) {
-  const prop = Symbol.for(property);
+  const prop = Symbol.for(property)
   return function define(Class) {
     Object.defineProperty(Class.prototype, property, {
       configurable: true,
-
       get() {
-        return this[prop];
+        return this[prop]
       },
-
       set(value) {
-        if (this[prop] !== value) this.render(this[prop] = value);
-      }
-
-    });
-  };
+        if(this[prop] !== value) this.render(this[prop] = value)
+      },
+    })
+  }
 }
+exports.Input = Input

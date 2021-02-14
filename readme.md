@@ -23,9 +23,12 @@ Small webcomponent library for simple apps
 
 <h2>Install</h2>
 
-<a href="https://npmjs.com" title="npm is a package manager for javascript"><h3>NPM</h3></a><ul>
+<a href="https://npmjs.com" title="npm is a package manager for javascript"><h3>npm</h3></a>
+<ul>
 <li>Install: <code>npm install --save @scoutgg/widgets</code></li>
-<li>Module: <code>require('@scoutgg/widgets')</code></li></ul>
+<li>Import: <code>import * as pkg from ('@scoutgg/widgets')</code></li>
+<li>Require: <code>const pkg = require('@scoutgg/widgets')</code></li>
+</ul>
 
 <!-- /INSTALL -->
 
