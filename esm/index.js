@@ -5,6 +5,7 @@ export { Input } from './decorators/input.js'
 
 export { 
   define,
+  decorate,
   plugin,
   middleware,
   transfer

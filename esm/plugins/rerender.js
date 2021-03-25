@@ -18,7 +18,7 @@ export function rerender() {
   })
 }
 
-export default function rerenderPlugin(config) {
+export function hmr(config) {
   return function define(Class) {
     plugin(Class.prototype, {
       connectedCallback(args, next) {
@@ -32,3 +32,5 @@ export default function rerenderPlugin(config) {
     })
   }
 }
+
+export default hmr

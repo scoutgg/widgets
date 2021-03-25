@@ -32,7 +32,7 @@ export function register(component) {
     return transfer(Element, Component)
   }
 
-  customElements.define(tagName, Component)
+  customElements.define(tagName, Component, Component)
 }
 
 export function bootstrap(plugins = []) {

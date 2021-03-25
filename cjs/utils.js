@@ -11,12 +11,15 @@ function camelCase(string) {
 }
 exports.camelCase = camelCase
 
-function define(decorators=[], target = decorators.pop()) {
+function decorate(decorators=[], target = decorators.pop()) {
   for(const transform of decorators.reverse()) {
     target = transform(target) || target
   }
   return target
 }
+exports.decorate = decorate
+
+const define = decorate
 exports.define = define
 
 function middleware(done) {

@@ -15,6 +15,7 @@
 
 (m => {
   exports.define = m.define
+  exports.decorate = m.decorate
   exports.plugin = m.plugin
   exports.middleware = m.middleware
   exports.transfer = m.transfer

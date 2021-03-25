@@ -21,7 +21,7 @@ function rerender() {
 }
 exports.rerender = rerender
 
-function rerenderPlugin(config) {
+function hmr(config) {
   return function define(Class) {
     plugin(Class.prototype, {
       connectedCallback(args, next) {
@@ -35,4 +35,6 @@ function rerenderPlugin(config) {
     })
   }
 }
-Object.defineProperty(exports, '__esModule', {value: true}).default = rerenderPlugin
+exports.hmr = hmr
+
+Object.defineProperty(exports, '__esModule', {value: true}).default = hmr

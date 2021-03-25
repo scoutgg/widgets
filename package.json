@@ -10,7 +10,10 @@
       "import": "./esm/index.js",
       "require": "./cjs/index.js"
     },
+    "./cjs": "./cjs/index.js",
+    "./cjs/": "./cjs/",
     "./esm": "./esm/index.js",
+    "./esm/": "./esm/",
     "./vdom": {
       "import": "./esm/renderers/vdom.js",
       "require": "./cjs/renderers/vdom.js"
@@ -26,6 +29,10 @@
     "./queue": {
       "import": "./esm/renderers/queue.js",
       "require": "./cjs/renderers/queue.js"
+    },
+    "./rerender": {
+      "import": "./esm/plugins/rerender.js",
+      "require": "./cjs/plugins/rerender.js"
     }
   },
   "sideEffects": false,

@@ -35,7 +35,7 @@ function register(component) {
     return transfer(Element, Component)
   }
 
-  customElements.define(tagName, Component)
+  customElements.define(tagName, Component, Component)
 }
 exports.register = register
 

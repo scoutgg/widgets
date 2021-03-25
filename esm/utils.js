@@ -8,12 +8,14 @@ export function camelCase(string) {
   return string.replace(/-./g, c => c[1].toUpperCase())
 }
 
-export function define(decorators=[], target = decorators.pop()) {
+export function decorate(decorators=[], target = decorators.pop()) {
   for(const transform of decorators.reverse()) {
     target = transform(target) || target
   }
   return target
 }
+
+export const define = decorate
 
 export function middleware(done) {
   const middleware = []

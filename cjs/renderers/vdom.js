@@ -6,20 +6,22 @@ function createHyper(VNode) {
     return new VNode(name, attrs, children)
   }
 }
-function vdom({ diff, patch, VNode, h: hyper }, html = hyper || createHyper(VNode)) {
-  const cache = new WeakMap()
+function vdom({ diff, patch, VNode, h: hyper, lib }, html = hyper || createHyper(VNode)) {
+  const cache = Symbol.for('vdom')
+
+  if(!lib) lib = node => node
 
   function render(template, target) {
-    const previous = cache.get(target) || new VNode(target.tagName, null, [])
+    const previous = target[cache] || new VNode(target.tagName, null, [])
     const current = new VNode(target.tagName, null, [].concat(template))
     const changes = diff(previous, current)
   
-    cache.set(target, current)
+    target[cache] = current
 
     patch(target, changes)
   }
 
-  return renderer({ html, render })
+  return renderer({ html, render, lib })
 }
 exports.vdom = vdom
 
