@@ -1,43 +1,26 @@
-import { plugin } from '../utils.js'
-import { queue } from './queue.js'
+import renderer from './html.js'
 
-export function vdom({ VNode, diff, patch }) {
-  const shedule = queue(function render(node, cache) {
-    if(node.ssr) {
-      node.ssr(cache)
-    }
-
-    const target = node.shadowRoot || node
-    const previous = cache.get(node) || new VNode(target.tagName, null, [])
-    const current = new VNode(target.tagName, null, node.template(node))
-
-    const changes = diff(previous, current)
-
-    cache.set(node, current)
-    patch(target, changes)
-  })
-
-  return function define(Class) {
-    plugin(Class.prototype, {
-      attributeChangedCallback(args, next) {
-        this.render()
-        return next()
-      },
-      connectedCallback(args, next) {
-        this.render()
-        return next()
-      },
-      render([ callback ], next) {
-        if(!this.shadowRoot) {
-          this.attachShadow({ mode: 'open' })
-        }
-        shedule(this, (...args) => {
-          if(typeof callback === 'function') {
-            callback(...args)
-          }
-          next()
-        })
-      }
-    })
+function createHyper(VNode) {
+  return function h(name, attrs, ...children) {
+    return new VNode(name, attrs, children)
   }
 }
+export function vdom({ diff, patch, VNode, h: hyper, lib }, html = hyper || createHyper(VNode)) {
+  const cache = Symbol.for('vdom')
+
+  if(!lib) lib = node => node
+
+  function render(template, target) {
+    const previous = target[cache] || new VNode(target.tagName, null, [])
+    const current = new VNode(target.tagName, null, [].concat(template))
+    const changes = diff(previous, current)
+  
+    target[cache] = current
+
+    patch(target, changes)
+  }
+
+  return renderer({ html, render, lib })
+}
+
+export default vdom

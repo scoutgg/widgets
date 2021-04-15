@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Widgets</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "@scoutgg/widgets": "/esm/index.js",
+        "@scoutgg/widgets/": "/esm/",
+        "virtual-dom": "https://cdn.esm.sh/v15/virtual-dom",
+        "react-dom": "https://cdn.esm.sh/v15/react-dom",
+        "lit-html": "https://cdn.esm.sh/v15/lit-html",
+        "uhtml": "https://cdn.esm.sh/v15/uhtml",
+        "htm/": "https://cdn.esm.sh/v15/htm/",
+        "htm": "https://cdn.esm.sh/v15/htm",
+        "vue": "https://unpkg.com/vue@2.6.12/dist/vue.esm.browser.js"
+      }
+    }
+  </script>
+  <style>
+    body {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 1em;
+    }
+    body > section {
+      grid-row: 2;
+    }
+    main {
+      display: grid;
+      grid-column: span 2;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      grid-gap: 1em;
+      align-items: stretch;
+    }
+    section {
+      display: flex;
+      flex-direction: column;
+    }
+    section pre {
+      flex: 1;
+    }
+    h1 {
+      grid-column: 0 / 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Widgets</h1>
+
+  <h2>Setup</h2>
+  <script>
+    function counter(html, target) {      
+      function increment() {
+        target.count += 1
+      }
+      function decrement() {
+        target.count -= 1
+      }
+
+      return html`
+        <div class="counter">
+          <style>
+            .counter {
+              display: grid;
+              grid-template-columns: auto 1fr auto;
+              width: 100px;
+              text-align: center;
+              align-items: center;
+            }
+            .counter button {
+              padding: .5em 1em;
+              border: thin solid rgba(0,0,0, 0.3);
+              background: transparent;
+            }
+            .counter button:is(:hover, :focus) {
+              background: rgba(0,0,0, 0.1);
+            }
+          </style>
+          <button onClick=${decrement}>-</button>
+          <b>${target.count}</b>
+          <button onClick=${increment}>+</button>
+        </div>
+      `
+    }
+  </script>
+  <main>
+    <demo-react></demo-react>
+    <script type="module">
+      import { define, Component, Attribute } from '@scoutgg/widgets'
+      import Renderer from '@scoutgg/widgets/renderers/react.js'
+      import ReactDOM from 'react-dom'
+      import { html } from 'htm/react'
+      
+      function template(html) {
+        return html`
+          <h2>${this.localName}</h2>
+          ${counter(html, this)}
+        `
+      }
+
+      define([
+        Component('demo'),
+        Attribute('count', Number, { default: 0 }),
+        Renderer(ReactDOM, /* optional */ html),
+        class React extends HTMLElement {
+          template = template;
+        }
+      ])
+    </script>
+
+    <demo-vue></demo-vue>
+    <script type="module">
+      import { define, Component, Attribute } from '@scoutgg/widgets'
+      import Renderer from '@scoutgg/widgets/renderers/vue.js'
+      import Vue from 'vue'
+      import htm from 'htm'
+
+      function template(html, { localName }) {
+        return html`
+          <div>
+            <h2>${localName}</h2>
+            ${counter(html, this)}
+          </div>
+        `
+      }
+
+      define([
+        Component('demo'),
+        Renderer(Vue, /* optional */ htm),
+        class Vue extends HTMLElement {
+          template = template;
+
+          data = { 
+            count: 0,
+          };
+
+        }
+      ])
+    </script>
+
+
+    <demo-lit></demo-lit>
+    <script type="module">
+      import { define, Component, Attribute } from '@scoutgg/widgets'
+      import Renderer from '@scoutgg/widgets/renderers/html.js'
+      import { html as _html, render } from 'lit-html'
+
+      function at(_, event) {
+        return ` @${event.toLowerCase()}`
+      }
+
+      function html(parts, ...args) {        
+        const cleaned = []
+        
+        for(let index = 0; index < parts.length; index++) {
+          cleaned[index] = parts[index].replace(/ on([^=]+)/g, at)
+        }
+
+        return _html(cleaned, ...args)
+      }
+
+      function template(html) {
+        return html`
+          <h2>${this.localName}</h2>
+          ${counter(html, this)}
+        `
+      }
+
+      define([
+        Component('demo'),
+        Attribute('count', Number, { default: 0 }),
+        Renderer({ 
+          html, 
+          render
+        }),
+        class Lit extends HTMLElement {
+          template = template;
+        }
+      ])
+    </script>
+
+
+    <demo-uhtml></demo-uhtml>
+    <script type="module">
+      import { define, Component, Attribute } from '@scoutgg/widgets'
+      import Renderer from '@scoutgg/widgets/renderers/html.js'
+      import { html, render } from 'uhtml'
+
+      function template(html) {
+        return html`
+          <h2>${this.localName}</h2>
+          ${counter(html, this)}
+        `
+      }
+
+      define([
+        Component('demo'),
+        Attribute('count', Number, { default: 0 }),
+        Renderer({ html, render, reverse: true }),
+        class Uhtml extends HTMLElement {
+          template = template;
+        }
+      ])
+    </script>
+
+
+    <demo-vdom></demo-vdom>
+    <script type="module">
+      import { define, Component, Attribute } from '@scoutgg/widgets'
+      import Renderer from '@scoutgg/widgets/renderers/vdom.js'
+      import vdom from 'virtual-dom'
+      import htm from 'htm'
+          
+      function template(html) {
+        return html`
+          <h2>${this.localName}</h2>
+          ${counter(html, this)}
+        `
+      }
+
+      function h(name, props, ...children) {
+        if(props) {
+          for(const prop of Object.keys(props)) {
+            if(/^on/.test(prop)) {
+              props[prop.toLowerCase()] = props[prop]
+              delete props[prop]
+            } else if(typeof props[prop] !== 'object') {
+              if(!props.attributes) props.attributes = {}
+              props.attributes[prop] = props[prop]
+            }
+          }
+        }
+        
+        return vdom.h(name, props, children)
+      }
+
+      define([
+        Component('demo'),
+        Attribute('count', Number, { default: 0 }),
+        Renderer(vdom, /* optional */ htm.bind(h)),
+        class Vdom extends HTMLElement {
+          template = template;
+
+        }
+      ])
+    </script>
+
+    <demo-raw></demo-raw>
+    <script type="module">
+      import { define, Component, Attribute } from '@scoutgg/widgets'
+      import Renderer from '@scoutgg/widgets/renderers/html.js'
+      
+      // Please *never* use this in a real app
+      // If you do I will not help you when things go wrong
+      
+      let active = null
+
+      function html(parts, ...holes) {
+        const params = holes.map(hole => {
+          if(typeof hole === 'function') {
+            const id = 'fn' + Math.random().toString(16).slice(2)
+            window[id] = function once(event) {
+              delete window[id]             
+              return hole.call(this, event)
+            }
+            return id + '(event)'
+          }
+          return hole
+        })
+        return String.raw(parts, ...params)
+      }
+
+      function render(template, node) {
+        node.innerHTML = template
+      }
+
+      function template(html) {
+        return html`
+          <h2>${this.localName}</h2>
+          ${counter(html, this)}
+        `
+      }
+
+      define([
+        Component('demo'),
+        Attribute('count', Number, { default: 0 }),
+        Renderer({ html, render }),
+        class Raw extends HTMLElement {
+          template = template;
+
+        }
+      ])
+    </script>
+  </main>
+
+  <h2>Bootstrap</h2>
+  <script type="module" class="bootstrap">
+    import { bootstrap } from '@scoutgg/widgets'
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+      document.querySelectorAll('script').forEach((script) => {
+        const wrapper = document.createElement('section')
+        const block = document.createElement('pre')
+        block.textContent = script.textContent
+        hljs.highlightBlock(block)
+
+        wrapper.append(script.previousElementSibling)
+        wrapper.append(block)
+
+        script.replaceWith(wrapper)
+      });
+    });
+
+    bootstrap()
+  </script>
+</body>
+</html>

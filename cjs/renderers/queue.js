@@ -1,48 +1,39 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.queue = queue;
-
-var _utils = require("../utils.js");
-
+'use strict';
 function queue(render) {
-  const queue = new Set();
-  const cache = new WeakMap();
-  const callbacks = new Set();
+  const queue = new Set()
+  const callbacks = new Set()
 
   function apply() {
-    for (const node of queue) {
-      render(node, cache);
+    for(const node of queue) {
+      render(node)
     }
   }
 
   function attempt() {
     try {
-      apply();
-    } catch (error) {
-      throw error;
+      apply()
+    } catch(error) {
+      throw error
     } finally {
-      queue.clear();
-
-      for (const callback of callbacks) {
-        callback();
+      queue.clear()
+      for(const callback of callbacks) {
+        callback()
       }
-
-      callbacks.clear();
+      callbacks.clear()
     }
   }
 
+  let next = null
+
   return function shedule(element, callback) {
-    if (!queue.size) {
-      requestAnimationFrame(attempt);
+    if(!queue.size) {
+      next = Promise.resolve().then(attempt)
     }
-
-    if (typeof callback === 'function') {
-      callbacks.add(callback);
+    if(typeof callback === 'function') {
+      callbacks.add(callback)
     }
-
-    queue.add(element);
-  };
+    queue.add(element)
+    return next
+  }
 }
+exports.queue = queue

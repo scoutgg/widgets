@@ -1,46 +1,40 @@
-"use strict";
+'use strict';
+const { plugin } = require('../utils.js')
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.rerender = rerender;
-exports.default = rerenderPlugin;
-exports.elements = void 0;
-
-var _utils = require("../utils.js");
-
-const elements = new Set();
-exports.elements = elements;
+const elements = new Set()
+exports.elements = elements
 
 function rerender() {
   return new Promise(resolve => {
-    let pending = 0;
+    let pending = 0
 
     function decrement() {
-      if (--pending < 1) resolve();
+      if(--pending < 1) resolve()
     }
 
-    for (const element of elements) {
-      if (element.render && ++pending) {
-        element.render(decrement);
+    for(const element of elements) {
+      if(element.render && ++pending) {
+        element.render(decrement)
       }
     }
-  });
+  })
 }
+exports.rerender = rerender
 
-function rerenderPlugin(config) {
+function hmr(config) {
   return function define(Class) {
-    (0, _utils.plugin)(Class.prototype, {
+    plugin(Class.prototype, {
       connectedCallback(args, next) {
-        elements.add(this);
-        return next();
+        elements.add(this)
+        return next()
       },
-
       disconnectedCallback(args, next) {
-        elements.delete(this);
-        return next();
+        elements.delete(this)
+        return next()
       }
-
-    });
-  };
+    })
+  }
 }
+exports.hmr = hmr
+
+Object.defineProperty(exports, '__esModule', {value: true}).default = hmr

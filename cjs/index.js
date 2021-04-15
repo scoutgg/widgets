@@ -1,63 +1,22 @@
-"use strict";
+'use strict';
+(m => {
+  exports.Component = m.Component
+  exports.bootstrap = m.bootstrap
+})(require('./decorators/component.js'));
+(m => {
+  exports.Template = m.Template
+})(require('./decorators/template.js'));
+(m => {
+  exports.Attribute = m.Attribute
+})(require('./decorators/attribute.js'));
+(m => {
+  exports.Input = m.Input
+})(require('./decorators/input.js'));
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var _exportNames = {
-  Component: true,
-  bootstrap: true,
-  Template: true,
-  Attribute: true,
-  Input: true
-};
-Object.defineProperty(exports, "Component", {
-  enumerable: true,
-  get: function () {
-    return _component.Component;
-  }
-});
-Object.defineProperty(exports, "bootstrap", {
-  enumerable: true,
-  get: function () {
-    return _component.bootstrap;
-  }
-});
-Object.defineProperty(exports, "Template", {
-  enumerable: true,
-  get: function () {
-    return _template.Template;
-  }
-});
-Object.defineProperty(exports, "Attribute", {
-  enumerable: true,
-  get: function () {
-    return _attribute.Attribute;
-  }
-});
-Object.defineProperty(exports, "Input", {
-  enumerable: true,
-  get: function () {
-    return _input.Input;
-  }
-});
-
-var _component = require("./decorators/component.js");
-
-var _template = require("./decorators/template.js");
-
-var _attribute = require("./decorators/attribute.js");
-
-var _input = require("./decorators/input.js");
-
-var _utils = require("./utils.js");
-
-Object.keys(_utils).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function () {
-      return _utils[key];
-    }
-  });
-});
+(m => {
+  exports.define = m.define
+  exports.decorate = m.decorate
+  exports.plugin = m.plugin
+  exports.middleware = m.middleware
+  exports.transfer = m.transfer
+})(require('./utils.js'));

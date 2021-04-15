@@ -1,13 +1,10 @@
-import { plugin } from '../utils.js'
-
 export function queue(render) {
   const queue = new Set()
-  const cache = new WeakMap()
   const callbacks = new Set()
 
   function apply() {
     for(const node of queue) {
-      render(node, cache)
+      render(node)
     }
   }
 
@@ -25,13 +22,16 @@ export function queue(render) {
     }
   }
 
+  let next = null
+
   return function shedule(element, callback) {
     if(!queue.size) {
-      requestAnimationFrame(attempt)
+      next = Promise.resolve().then(attempt)
     }
     if(typeof callback === 'function') {
       callbacks.add(callback)
     }
     queue.add(element)
+    return next
   }
 }

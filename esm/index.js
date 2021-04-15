@@ -3,4 +3,10 @@ export { Template } from './decorators/template.js'
 export { Attribute } from './decorators/attribute.js'
 export { Input } from './decorators/input.js'
 
-export * from './utils.js'
+export { 
+  define,
+  decorate,
+  plugin,
+  middleware,
+  transfer
+} from './utils.js'
